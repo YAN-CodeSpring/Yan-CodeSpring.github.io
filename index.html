@@ -1,355 +1,161 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>CodeSpring</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CodeSpring - Created by Yan Ruquan</title><meta name="author" content="Yan Rui"><meta name="copyright" content="Yan Rui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="CodeSpring">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="CodeSpring">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/source/images/2025-06-27.jpg">
 <meta property="article:author" content="Yan Rui">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="CodeSpring" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
-
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">CodeSpring</a>
-      </h1>
+<meta name="twitter:image" content="http://example.com/source/images/2025-06-27.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Created by Yan Ruquan</a>
-        </h2>
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CodeSpring',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./source/images/2025-06-27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Link</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/friendlink/"><i class="fa-fw fas fa-music"></i><span> Friend Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-video"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/private/"><i class="fa-fw fas fa-tags"></i><span> Private</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: blue;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/test1/jpg" alt="Logo"><span class="site-name">CodeSpring</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> Link</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/friendlink/"><i class="fa-fw fas fa-music"></i><span> Friend Link</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-video"></i><span> About</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/private/"><i class="fa-fw fas fa-tags"></i><span> Private</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">CodeSpring</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/%E4%BB%A3%E7%A0%81%E5%9D%97%E5%B1%95%E7%A4%BA-2025-06-28-test-code.html" title="test_code">test_code</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-28T07:22:25.000Z" title="发表于 2025-06-28 15:22:25">2025-06-28</time></span></div><div class="content">这里展示我现在所有会的Python代码，别笑print(&quot;hello world&quot;)a=1b=2print(&#x27;a+b=&#x27;,a+b)</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/Hello.html" title="Hello">Hello</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-27T15:40:47.000Z" title="发表于 2025-06-27 23:40:47">2025-06-27</time></span></div><div class="content">启程：我的博客 | YAN-CodeSpring 🌱 2025年6月27日 · 记录此刻 ✨  &emsp;&emsp;终于，我的个人博客在今天正式上线了！🎉🚀 &emsp;&emsp;这其实不是我第一次尝试搭建博客。上一次的尝试，最终败给了自己当时那个”惊世骇俗”（或者说，过于中二😂）的博客名字。痛定思痛，这次我决定重新开始，并赋予它一个承载着期许的名字：YAN-CodeSpring。 关于这个名字 🤔💡 YAN：我的姓氏，一个朴素的起点。 Code：代码，不言而喻，这是我开创个人博客的主要目的。💻 Spring：这个词对我有着双重意义： 春天 🌸：希望我写下的代码能像春风一样，为这个世界带来些许美好、生机与活力。 泉水 💧：更希望自己在代码的世界里，能保持”文思泉涌”的状态，灵感源源不断！这个名字与我用了很久的网名”言如泉”也形成了奇妙的呼应✨。不得不说，从”取名菜鸟”到最终拍板定下这个名字，过程堪比”网名生成器历险记”——让AI生成了无数选项，兜兜转转，最终发现还是自己灵光一闪的这个最合心意！💯...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/test-1.html" title="test_1">test_1</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-27T11:00:59.000Z" title="发表于 2025-06-27 19:00:59">2025-06-27</time></span></div><div class="content">这是我的偶像尊龙先生 这是随便找的一张风景图   </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/hello-world.html" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-27T10:30:19.711Z" title="发表于 2025-06-27 18:30:19">2025-06-27</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post$ hexo new &quot;My New Post&quot;  More info: Writing Run server$ hexo server  More info: Server Generate static files$ hexo generate  More info: Generating Deploy to remote sites$ hexo deploy  More info: Deployment </div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/./source/images/2025-06-27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Yan Rui</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E4%BB%A3%E7%A0%81%E5%9D%97%E5%B1%95%E7%A4%BA-2025-06-28-test-code.html" title="test_code">test_code</a><time datetime="2025-06-28T07:22:25.000Z" title="发表于 2025-06-28 15:22:25">2025-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Hello.html" title="Hello">Hello</a><time datetime="2025-06-27T15:40:47.000Z" title="发表于 2025-06-27 23:40:47">2025-06-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/test-1.html" title="test_1">test_1</a><time datetime="2025-06-27T11:00:59.000Z" title="发表于 2025-06-27 19:00:59">2025-06-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/hello-world.html" title="Hello World">Hello World</a><time datetime="2025-06-27T10:30:19.711Z" title="发表于 2025-06-27 18:30:19">2025-06-27</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
       
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
   
-    <article id="post-Hello" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/Hello.html" class="article-date">
-  <time class="dt-published" datetime="2025-06-27T15:40:47.000Z" itemprop="datePublished">2025-06-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/Hello.html">Hello</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
+    <ul class="card-archive-list">
       
-        <h1 id="启程：我的博客-YAN-CodeSpring-🌱"><a href="#启程：我的博客-YAN-CodeSpring-🌱" class="headerlink" title="启程：我的博客 | YAN-CodeSpring 🌱"></a>启程：我的博客 | YAN-CodeSpring 🌱</h1><blockquote>
-<p><strong>2025年6月27日</strong> · 记录此刻 ✨</p>
-</blockquote>
-<p>&emsp;&emsp;终于，我的个人博客在今天正式上线了！🎉🚀</p>
-<p>&emsp;&emsp;这其实不是我第一次尝试搭建博客。上一次的尝试，最终败给了自己当时那个”惊世骇俗”（或者说，过于中二😂）的博客名字。痛定思痛，这次我决定重新开始，并赋予它一个承载着期许的名字：<strong>YAN-CodeSpring</strong>。</p>
-<h2 id="关于这个名字-🤔💡"><a href="#关于这个名字-🤔💡" class="headerlink" title="关于这个名字 🤔💡"></a>关于这个名字 🤔💡</h2><ul>
-<li><strong>YAN</strong>：我的姓氏，一个朴素的起点。</li>
-<li><strong>Code</strong>：代码，不言而喻，这是我开创个人博客的主要目的。💻</li>
-<li><strong>Spring</strong>：这个词对我有着双重意义：<ul>
-<li><strong>春天</strong> 🌸：希望我写下的代码能像春风一样，为这个世界带来些许美好、生机与活力。</li>
-<li><strong>泉水</strong> 💧：更希望自己在代码的世界里，能保持”文思泉涌”的状态，灵感源源不断！<br>这个名字与我用了很久的网名”言如泉”也形成了奇妙的呼应✨。不得不说，从”取名菜鸟”到最终拍板定下这个名字，过程堪比”网名生成器历险记”——让AI生成了无数选项，兜兜转转，最终发现还是自己灵光一闪的这个最合心意！💯 满意！</li>
-</ul>
-</li>
-</ul>
-<p>&emsp;&emsp;为了让这个名字更鲜活，我还请”豆包”基于”CodeSpring”的意象生成了头像。结果让我非常惊喜🎨，它现在正骄傲地挂在我的GitHub主页上，感觉完美契合！顺便展示一下，嘻嘻~ 😊</p>
-<img src="/images/2025-06-27.jpg" alt="CodeSpring" style="width: 300px; height: auto;" >
-
-<h2 id="博客的”皮肤”还在挑选中-🎨🤔"><a href="#博客的”皮肤”还在挑选中-🎨🤔" class="headerlink" title="博客的”皮肤”还在挑选中 🎨🤔"></a>博客的”皮肤”还在挑选中 🎨🤔</h2><p>&emsp;&emsp;此刻你看到的，还是Hexo默认的<code>landscape</code>主题，朴实无华。美化工作嘛…容我过几天再折腾⏳。</p>
-<p>&emsp;&emsp;内心其实有点小纠结😖：我超爱<code>butterfly</code>主题那种动态、华丽的效果✨，扑面而来的高级感；但另一方面，<code>next</code>主题的极致简洁和清爽📄，又感觉更适合把博客当做简历。真是鱼与熊掌，难分难舍啊！🤷‍♂️</p>
-<h2 id="未来会写些什么？-📝🔮"><a href="#未来会写些什么？-📝🔮" class="headerlink" title="未来会写些什么？ 📝🔮"></a>未来会写些什么？ 📝🔮</h2><p>&emsp;&emsp;嗯…既然这里大概率是我的”赛博自留地”🌌，人迹罕至，那写点”赛博日记”也未尝不可📖。虽然比打开写作软件码字多那么几步，但我应该会分享一些读书感悟📚、生活随想💭。</p>
-<p>&emsp;&emsp;更重要的，我希望它能成为我<strong>技术成长的见证者</strong>👨‍💻和<strong>心路历程的记录者</strong>❤️。所以，主要的内容方向会是<strong>机器学习</strong>🤖和<strong>计算机视觉</strong>👁️的学习笔记、项目心得。如果时间允许⏰，我也想把这次搭建博客过程中踩过的坑🕳️、解决的方案🔧整理出来（嗯，先画个饼🍪）。</p>
-<p>&emsp;&emsp;对了，有个小想法💡：是否能有办法给某些特定的页面或分类加上<strong>密码访问</strong>呢？🔐嘿嘿，你猜对了——谁还没点想”夹带私货”（比如放放我推？🌟）的小心思呢？🤫 这个功能得研究研究🔍。</p>
-<h2 id="写在最后-🏁"><a href="#写在最后-🏁" class="headerlink" title="写在最后 🏁"></a>写在最后 🏁</h2><p>&emsp;&emsp;蓝图很美好🌈，规划很丰满📈（，现实很骨感💀）。不过今天嘛…最重要的任务已经完成啦！🎯</p>
-<h3 id="——下班！😎💼"><a href="#——下班！😎💼" class="headerlink" title="——下班！😎💼"></a>——下班！😎💼</h3><br>
-<br>
-
-<hr>
-<div align="center">
-  <h2>  English Version  |  英文版本 </h2>
-  <p><em>Scroll down for English translation ▼</em></p>
-</div>
-
-<hr>
-<h1 id="Embarking-My-Blog-YAN-CodeSpring-🌱"><a href="#Embarking-My-Blog-YAN-CodeSpring-🌱" class="headerlink" title="Embarking: My Blog | YAN-CodeSpring 🌱"></a>Embarking: My Blog | YAN-CodeSpring 🌱</h1><blockquote>
-<p><strong>June 27, 2025</strong> · Marking the Moment ✨</p>
-</blockquote>
-<p>&emsp;&emsp;Finally, my personal blog is officially live today! 🎉🚀</p>
-<p>&emsp;&emsp;To be honest, this isn’t my first attempt at building a blog. My previous venture ultimately succumbed to what I can only describe as a… “spectacularly unconventional” (or perhaps, overly cringey 😂) blog name. Learning from that experience, I decided to start fresh and give it a name that carries my aspirations: <strong>YAN-CodeSpring</strong>.</p>
-<h2 id="About-the-Name-🤔💡"><a href="#About-the-Name-🤔💡" class="headerlink" title="About the Name 🤔💡"></a>About the Name 🤔💡</h2><ul>
-<li><strong>YAN</strong>: My surname, a simple starting point.</li>
-<li><strong>Code</strong>: Self-explanatory, the core purpose behind creating this personal blog. 💻</li>
-<li><strong>Spring</strong>: This word holds a dual meaning for me:<ul>
-<li><strong>The Season</strong> 🌸: Hoping the code I write can bring a touch of beauty, vitality, and renewal to the world.</li>
-<li><strong>The Fountain</strong> 💧: Wishing for a constant, bubbling flow of inspiration and ideas in my coding journey!<br>This name also resonates beautifully with my long-time online alias, “言如泉” (Yán Rú Quán - Words Like a Spring) ✨. The journey from a “naming novice” to settling on this wasn’t easy! I tasked AI with generating countless options, but circling back, the one that sparked in my own mind felt just right. 💯 Truly satisfied!</li>
-</ul>
-</li>
-</ul>
-<p>&emsp;&emsp;To bring this concept to life visually, I asked “Doubao” to generate an avatar based on the “CodeSpring” imagery 🎨. The result delighted me! It now proudly adorns my GitHub profile, feeling like the perfect match. Couldn’t resist showing it off! 😊 Teehee~</p>
-<img src="/images/2025-06-27.jpg" alt="CodeSpring" style="width: 300px; height: auto;" >
-
-<h2 id="The-Blog’s-“Skin”-is-Still-Under-Consideration-🎨🤔"><a href="#The-Blog’s-“Skin”-is-Still-Under-Consideration-🎨🤔" class="headerlink" title="The Blog’s “Skin” is Still Under Consideration 🎨🤔"></a>The Blog’s “Skin” is Still Under Consideration 🎨🤔</h2><p>&emsp;&emsp;What you see now is the default Hexo <code>landscape</code> theme – simple and unadorned. The beautification process… well, let’s tackle that in a few days ⏳.</p>
-<p>&emsp;&emsp;Internally, I’m a bit torn 😖: I absolutely adore the dynamic, visually rich aesthetics of the <code>butterfly</code> theme ✨, it oozes sophistication. On the other hand, the extreme minimalism and clean lines of the <code>next</code> theme 📄 feel like it would be a more suitable canvas if I want to present this blog as a resume. Truly a dilemma – elegance versus practicality! 🤷‍♂️</p>
-<h2 id="What-Lies-Ahead-📝🔮"><a href="#What-Lies-Ahead-📝🔮" class="headerlink" title="What Lies Ahead? 📝🔮"></a>What Lies Ahead? 📝🔮</h2><p>&emsp;&emsp;Well… since this space will likely be my own “cyber clearing” 🌌, sparsely populated, why not sprinkle in some “cyber diary” entries 📖? Though it involves a few more steps than just opening a writing app, I plan to share book reflections 📚 and life musings 💭 here.</p>
-<p>&emsp;&emsp;More crucially, I envision this blog becoming a <strong>witness to my technical growth</strong> 👨‍💻 and a <strong>repository for my journey</strong> ❤️. So, the primary focus will be on notes and insights related to <strong>Machine Learning</strong> 🤖 and <strong>Computer Vision</strong> 👁️. If time permits ⏰, I’d also like to document the hurdles 🕳️ and solutions 🔧 I found while building this very site (consider this my first… feature promise? 🍪).</p>
-<p>&emsp;&emsp;Oh, a little idea 💡: Would it be possible to implement <strong>password-protected access</strong> 🔐 for certain specific pages or categories? Heh, you guessed it – who doesn’t have a few little secrets (like maybe… my favorite idols? 🌟) they’d like to tuck away? 🤫 That’s a feature worth exploring 🔍.</p>
-<h2 id="Wrapping-Up-🏁"><a href="#Wrapping-Up-🏁" class="headerlink" title="Wrapping Up 🏁"></a>Wrapping Up 🏁</h2><p>&emsp;&emsp;The blueprint is grand 🌈, the plans are ambitious 📈 (, reality might be harsh 💀). But for today… the most important task is done! 🎯</p>
-<h3 id="——Logging-off-😎💼"><a href="#——Logging-off-😎💼" class="headerlink" title="——Logging off! 😎💼"></a>——Logging off! 😎💼</h3>
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/Hello.html" data-id="cmcf0hpde0000ccv351yxe83w" data-title="Hello" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-test-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/test-1.html" class="article-date">
-  <time class="dt-published" datetime="2025-06-27T11:00:59.000Z" itemprop="datePublished">2025-06-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/test-1.html">test_1</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>这是我的偶像尊龙先生<br><img src="/images/test1.jpg" alt="尊龙" /></p>
-<p>这是随便找的一张风景图<br><img src="/images/test2.jpg"></p>
-<img src="https://www.w3schools.cn/wp-content/uploads/linux/linux.png">
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/test-1.html" data-id="cmcepbxrd0000ugv3f4fu4m0b" data-title="test_1" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/hello-world.html" class="article-date">
-  <time class="dt-published" datetime="2025-06-27T10:30:19.711Z" itemprop="datePublished">2025-06-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/hello-world.html">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/hello-world.html" data-id="cmceodky40000w0v3c6m16k3z" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">六月 2025</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/Hello.html">Hello</a>
-          </li>
-        
-          <li>
-            <a href="/test-1.html">test_1</a>
-          </li>
-        
-          <li>
-            <a href="/hello-world.html">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2025 Yan Rui<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">4</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-28T08:03:11.435Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Yan Rui</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
