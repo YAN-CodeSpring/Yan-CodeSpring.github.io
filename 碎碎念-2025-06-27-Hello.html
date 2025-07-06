@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>新的起点 | Code Spring</title><meta name="author" content="言如泉"><meta name="copyright" content="言如泉"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="公元2025年6月27日，我的博客上线了！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新的起点">
+<meta property="og:url" content="http://example.com/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-06-27-Hello.html">
+<meta property="og:site_name" content="Code Spring">
+<meta property="og:description" content="公元2025年6月27日，我的博客上线了！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/cover_2.jpg">
+<meta property="article:published_time" content="2025-06-27T15:40:47.000Z">
+<meta property="article:modified_time" content="2025-07-06T16:49:36.101Z">
+<meta property="article:author" content="言如泉">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/cover_2.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "新的起点",
+  "url": "http://example.com/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-06-27-Hello.html",
+  "image": "http://example.com/images/cover_2.jpg",
+  "datePublished": "2025-06-27T15:40:47.000Z",
+  "dateModified": "2025-07-06T16:49:36.101Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "言如泉",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-06-27-Hello.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '新的起点',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/2025-06-27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw far fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/learn/"><i class="fa-fw fas fa-graduation-cap"></i><span> 学点习</span></a></li><li><a class="site-page child" href="/categories/read/"><i class="fa-fw fas fa-book"></i><span> 读点书</span></a></li><li><a class="site-page child" href="/categories/music/"><i class="fa-fw fas fa-music"></i><span> 听点歌</span></a></li><li><a class="site-page child" href="/categories/life/"><i class="fa-fw fas fa-icons"></i><span> 碎碎念</span></a></li><li><a class="site-page child" href="/categories/game/"><i class="fa-fw fas fa-gamepad"></i><span> 玩游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/cover_2.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Code Spring</span></a><a class="nav-page-title" href="/"><span class="site-name">新的起点</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw far fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/learn/"><i class="fa-fw fas fa-graduation-cap"></i><span> 学点习</span></a></li><li><a class="site-page child" href="/categories/read/"><i class="fa-fw fas fa-book"></i><span> 读点书</span></a></li><li><a class="site-page child" href="/categories/music/"><i class="fa-fw fas fa-music"></i><span> 听点歌</span></a></li><li><a class="site-page child" href="/categories/life/"><i class="fa-fw fas fa-icons"></i><span> 碎碎念</span></a></li><li><a class="site-page child" href="/categories/game/"><i class="fa-fw fas fa-gamepad"></i><span> 玩游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">新的起点</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-06-27T15:40:47.000Z" title="发表于 2025-06-27 23:40:47">2025-06-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-06T16:49:36.101Z" title="更新于 2025-07-07 00:49:36">2025-07-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/life/">life</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1>启程：我的博客 | YAN-CodeSpring 🌱</h1>
+<blockquote>
+<p><strong>2025年6月27日</strong> · 记录此刻 ✨</p>
+</blockquote>
+<p>  终于，我的个人博客在今天正式上线了！🎉🚀</p>
+<p>  这其实不是我第一次尝试搭建博客。上一次的尝试，最终败给了自己当时那个&quot;惊世骇俗&quot;（或者说，过于中二😂）的博客名字。痛定思痛，这次我决定重新开始，并赋予它一个承载着期许的名字：<strong>YAN-CodeSpring</strong>。</p>
+<h2 id="关于这个名字-🤔💡">关于这个名字 🤔💡</h2>
+<ul>
+<li><strong>YAN</strong>：我的姓氏，一个朴素的起点。</li>
+<li><strong>Code</strong>：代码，不言而喻，这是我开创个人博客的主要目的。💻</li>
+<li><strong>Spring</strong>：这个词对我有着双重意义：
+<ul>
+<li><strong>春天</strong> 🌸：希望我写下的代码能像春风一样，为这个世界带来些许美好、生机与活力。</li>
+<li><strong>泉水</strong> 💧：更希望自己在代码的世界里，能保持&quot;文思泉涌&quot;的状态，灵感源源不断！<br>
+这个名字与我用了很久的网名&quot;言如泉&quot;也形成了奇妙的呼应✨。不得不说，从&quot;取名菜鸟&quot;到最终拍板定下这个名字，过程堪比&quot;网名生成器历险记&quot;——让AI生成了无数选项，兜兜转转，最终发现还是自己灵光一闪的这个最合心意！💯 满意！</li>
+</ul>
+</li>
+</ul>
+<p>  为了让这个名字更鲜活，我还请&quot;豆包&quot;基于&quot;CodeSpring&quot;的意象生成了头像。结果让我非常惊喜🎨，它现在正骄傲地挂在我的GitHub主页上，感觉完美契合！顺便展示一下，嘻嘻~ 😊</p>
+<img src="/images/2025-06-27.jpg" alt="CodeSpring" style="width: 300px; height: auto;" >
+<h2 id="博客的-皮肤-还在挑选中-🎨🤔">博客的&quot;皮肤&quot;还在挑选中 🎨🤔</h2>
+<p>  此刻你看到的，还是Hexo默认的<code>landscape</code>主题，朴实无华。美化工作嘛…容我过几天再折腾⏳。</p>
+<p>  内心其实有点小纠结😖：我超爱<code>butterfly</code>主题那种动态、华丽的效果✨，扑面而来的高级感；但另一方面，<code>next</code>主题的极致简洁和清爽📄，又感觉更适合把博客当做简历。真是鱼与熊掌，难分难舍啊！🤷‍♂️</p>
+<h2 id="未来会写些什么？-📝🔮">未来会写些什么？ 📝🔮</h2>
+<p>  嗯…既然这里大概率是我的&quot;赛博自留地&quot;🌌，人迹罕至，那写点&quot;赛博日记&quot;也未尝不可📖。虽然比打开写作软件码字多那么几步，但我应该会分享一些读书感悟📚、生活随想💭。</p>
+<p>  更重要的，我希望它能成为我<strong>技术成长的见证者</strong>👨‍💻和<strong>心路历程的记录者</strong>❤️。所以，主要的内容方向会是<strong>机器学习</strong>🤖和<strong>计算机视觉</strong>👁️的学习笔记、项目心得。如果时间允许⏰，我也想把这次搭建博客过程中踩过的坑🕳️、解决的方案🔧整理出来（嗯，先画个饼🍪）。</p>
+<p>  对了，有个小想法💡：是否能有办法给某些特定的页面或分类加上<strong>密码访问</strong>呢？🔐嘿嘿，你猜对了——谁还没点想&quot;夹带私货&quot;（比如放放我推？🌟）的小心思呢？🤫 这个功能得研究研究🔍。</p>
+<h2 id="写在最后-🏁">写在最后 🏁</h2>
+<p>  蓝图很美好🌈，规划很丰满📈（，现实很骨感💀）。不过今天嘛…最重要的任务已经完成啦！🎯</p>
+<h3 id="——下班！😎💼">——下班！😎💼</h3>
+<br>
+<br>
+<hr>
+<div align="center">
+  <h2>  English Version  |  英文版本 </h2>
+  <p><em>Scroll down for English translation ▼</em></p>
+</div>
+<hr>
+<h1>Embarking: My Blog | YAN-CodeSpring 🌱</h1>
+<blockquote>
+<p><strong>June 27, 2025</strong> · Marking the Moment ✨</p>
+</blockquote>
+<p>  Finally, my personal blog is officially live today! 🎉🚀</p>
+<p>  To be honest, this isn’t my first attempt at building a blog. My previous venture ultimately succumbed to what I can only describe as a… “spectacularly unconventional” (or perhaps, overly cringey 😂) blog name. Learning from that experience, I decided to start fresh and give it a name that carries my aspirations: <strong>YAN-CodeSpring</strong>.</p>
+<h2 id="About-the-Name-🤔💡">About the Name 🤔💡</h2>
+<ul>
+<li><strong>YAN</strong>: My surname, a simple starting point.</li>
+<li><strong>Code</strong>: Self-explanatory, the core purpose behind creating this personal blog. 💻</li>
+<li><strong>Spring</strong>: This word holds a dual meaning for me:
+<ul>
+<li><strong>The Season</strong> 🌸: Hoping the code I write can bring a touch of beauty, vitality, and renewal to the world.</li>
+<li><strong>The Fountain</strong> 💧: Wishing for a constant, bubbling flow of inspiration and ideas in my coding journey!<br>
+This name also resonates beautifully with my long-time online alias, “言如泉” (Yán Rú Quán - Words Like a Spring) ✨. The journey from a “naming novice” to settling on this wasn’t easy! I tasked AI with generating countless options, but circling back, the one that sparked in my own mind felt just right. 💯 Truly satisfied!</li>
+</ul>
+</li>
+</ul>
+<p>  To bring this concept to life visually, I asked “Doubao” to generate an avatar based on the “CodeSpring” imagery 🎨. The result delighted me! It now proudly adorns my GitHub profile, feeling like the perfect match. Couldn’t resist showing it off! 😊 Teehee~</p>
+<img src="/images/2025-06-27.jpg" alt="CodeSpring" style="width: 300px; height: auto;" >
+<h2 id="The-Blog’s-“Skin”-is-Still-Under-Consideration-🎨🤔">The Blog’s “Skin” is Still Under Consideration 🎨🤔</h2>
+<p>  What you see now is the default Hexo <code>landscape</code> theme – simple and unadorned. The beautification process… well, let’s tackle that in a few days ⏳.</p>
+<p>  Internally, I’m a bit torn 😖: I absolutely adore the dynamic, visually rich aesthetics of the <code>butterfly</code> theme ✨, it oozes sophistication. On the other hand, the extreme minimalism and clean lines of the <code>next</code> theme 📄 feel like it would be a more suitable canvas if I want to present this blog as a resume. Truly a dilemma – elegance versus practicality! 🤷‍♂️</p>
+<h2 id="What-Lies-Ahead-📝🔮">What Lies Ahead? 📝🔮</h2>
+<p>  Well… since this space will likely be my own “cyber clearing” 🌌, sparsely populated, why not sprinkle in some “cyber diary” entries 📖? Though it involves a few more steps than just opening a writing app, I plan to share book reflections 📚 and life musings 💭 here.</p>
+<p>  More crucially, I envision this blog becoming a <strong>witness to my technical growth</strong> 👨‍💻 and a <strong>repository for my journey</strong> ❤️. So, the primary focus will be on notes and insights related to <strong>Machine Learning</strong> 🤖 and <strong>Computer Vision</strong> 👁️. If time permits ⏰, I’d also like to document the hurdles 🕳️ and solutions 🔧 I found while building this very site (consider this my first… feature promise? 🍪).</p>
+<p>  Oh, a little idea 💡: Would it be possible to implement <strong>password-protected access</strong> 🔐 for certain specific pages or categories? Heh, you guessed it – who doesn’t have a few little secrets (like maybe… my favorite idols? 🌟) they’d like to tuck away? 🤫 That’s a feature worth exploring 🔍.</p>
+<h2 id="Wrapping-Up-🏁">Wrapping Up 🏁</h2>
+<p>  The blueprint is grand 🌈, the plans are ambitious 📈 (, reality might be harsh 💀). But for today… the most important task is done! 🎯</p>
+<h3 id="——Logging-off-😎💼">——Logging off! 😎💼</h3>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">言如泉</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-06-27-Hello.html">http://example.com/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-06-27-Hello.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">Code Spring</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/images/cover_2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-06-28-test-code.html" title="功能教程及测试"><img class="cover" src="/images/cover_1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">功能教程及测试</div></div><div class="info-2"><div class="info-item-1">代码框效果测试</div></div></div></a><a class="pagination-related" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-06-27-test-1.html" title="test_1"><img class="cover" src="/images/cover_3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">test_1</div></div><div class="info-2"><div class="info-item-1">这是我的偶像尊龙先生  这是随便找的一张风景图   </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/2025-06-27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">言如泉</div><div class="author-info-description">什么都写点，各位见笑了。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/YAN-CodeSpring"><i class="fab fa-github"></i><span>在GitHub上关注我！</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/YAN-CodeSpring" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:yan.codespring@gmail.com" target="_blank" title="Email"><i class="far fa-envelope" style="color: #24292e;"></i></a><a class="social-icon" href="https://space.bilibili.com/1324439158?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.zhihu.com/people/10-44-3-50-19" target="_blank" title="知乎"><i class="fab fa-zhihu" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-06-28-test-code.html" title="功能教程及测试"><img src="/images/cover_1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="功能教程及测试"/></a><div class="content"><a class="title" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-06-28-test-code.html" title="功能教程及测试">功能教程及测试</a><time datetime="2025-06-28T07:22:25.000Z" title="发表于 2025-06-28 15:22:25">2025-06-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-06-27-Hello.html" title="新的起点"><img src="/images/cover_2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="新的起点"/></a><div class="content"><a class="title" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-06-27-Hello.html" title="新的起点">新的起点</a><time datetime="2025-06-27T15:40:47.000Z" title="发表于 2025-06-27 23:40:47">2025-06-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-06-27-test-1.html" title="test_1"><img src="/images/cover_3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="test_1"/></a><div class="content"><a class="title" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-06-27-test-1.html" title="test_1">test_1</a><time datetime="2025-06-27T11:00:59.000Z" title="发表于 2025-06-27 19:00:59">2025-06-27</time></div></div></div></div></div></div></main><footer id="footer" style="background: Grey;"><div id="footer-wrap"><div class="copyright">&copy;2025 By 言如泉</div><div class="footer_custom_text">Welcome To Contact Me.</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
