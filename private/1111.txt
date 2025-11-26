@@ -135,10 +135,18 @@ body::after{                             /* 黑色半透明遮罩 */
 
 /* 手机适配：媒体查询（放在<style>内，确保CSS生效） */
 @media (max-width: 768px) {
+    /* 新增：修复手机端滑不到顶部的问题 */
+    html, body {
+        display: block !important; /* 取消flex布局，恢复正常滚动 */
+        align-items: normal !important;
+        justify-content: normal !important;
+    }
+
     #birthday-letter-container {
         width: 90% !important; /* 手机端宽度 */
-        max-width: 300px !important;
+        max-width: 480px !important;
         padding: 20px 10px !important;
+        margin: 30px auto !important; /* 顶部留30px空隙，更美观 */
     }
     .birthday-title {
         font-size: 2em !important; /* 标题缩小 */
@@ -160,6 +168,7 @@ body::after{                             /* 黑色半透明遮罩 */
         background-size: cover !important; /* 适配手机背景 */
     }
 }
+
 </style>
 
 <!-- ====================  2.  结构  ==================== -->
@@ -226,7 +235,7 @@ const letterText =
 如果不是手写的我不是写得太寡淡就是太煽情，我真的尝试过了......
 
                                     From 你的饼饼！
-                                    2025.11.17
+                                    2025.11.27
                                     00:00:00
 `;
 
