@@ -204,6 +204,23 @@ body::after{                             /* 黑色半透明遮罩 */
 
 <!-- ====================  3.  脚本  ==================== -->
 <script>
+/* -------------- 打字机效果（带自动获取当前时间）-------------- */
+// 时间格式化函数：自动获取当前时间，转成「YYYY.MM.DD HH:mm:ss」格式
+function formatCurrentTime() {
+    const now = new Date();
+    // 年、月、日（补0，确保两位数）
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // 月份从0开始，需+1
+    const day = String(now.getDate()).padStart(2, '0');
+    // 时、分、秒（补0）
+    const hour = String(now.getHours()).padStart(2, '0');
+    const minute = String(now.getMinutes()).padStart(2, '0');
+    const second = String(now.getSeconds()).padStart(2, '0');
+    // 拼接格式
+    return `${year}.${month}.${day}\n${hour}:${minute}:${second}`;
+}
+
+
 /* ---------- 打字机 ---------- */
 const letterText =
 `
@@ -235,8 +252,7 @@ const letterText =
 如果不是手写的我不是写得太寡淡就是太煽情，我真的尝试过了......
 
                                     From 你的饼饼！
-                                    2025.11.27
-                                    00:00:00
+                                    ${formatCurrentTime()}
 `;
 
 const typingEl = document.getElementById('typing');
