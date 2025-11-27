@@ -1,0 +1,51 @@
+---
+title: 你的页面标题
+date: 2025-11-28
+categories: [自定义] # 随便归类，不影响
+tags: []
+toc: false  # 关闭主题目录
+comments: false  # 关闭评论
+permalink: /private/test/  # 可选，自定义访问路径
+---
+
+{% raw %}
+/* ========== 核心：完全禁用Butterfly主题所有元素 ========== */
+<style>
+        /* 清除主题容器的所有样式 */
+        #page, #content-inner, .layout {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+        }
+        /* 隐藏所有主题默认元素（优先级最高） */
+        #page-header, #nav, #sidebar, #footer, .post-copyright, .post-meta, .post-tags,
+        .breadcrumbs, .aside-content, .sticky_layout, #rightside, .post-title, .layout>.aside,
+        .content-wrap>.aside, .sidebar-dock, .toc-container, .post-info, .post-content,
+        .category-lists, .tag-cloud, .pagination, .archive-year, .archive-month,
+        .post-widget, .related-posts, .comment-wrap, .gitalk-container {
+            display: none !important;
+            pointer-events: none !important;
+        }
+</style>
+
+
+<!-- ==========  你的自定义内容（完全独立） ========== -->
+
+<!-- 必须加：动画的渲染容器（就是你找到的那行HTML） -->
+<div class="experience"></div>
+
+<!-- 1. 引入独立CSS文件（路径是/source下的相对路径） -->
+<link rel="stylesheet" href="/css/black_hole.css">
+
+<!-- 2. 页面结构（你要显示的内容） -->
+<canvas id="particleCanvas"></canvas>
+<div class="content">我的粒子动画页面</div>
+
+<!-- 3. 引入独立JS文件（注意：如果JS依赖DOM，要加defer确保页面加载完再执行） -->
+<script src="/js/black_hole.js" defer></script>
+
+
+
+{% endraw %}
