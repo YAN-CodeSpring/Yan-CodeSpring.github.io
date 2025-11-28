@@ -1,0 +1,132 @@
+---
+title: 3D轮播特效页面
+date: 2025-11-28
+categories: [private]
+tags: []
+toc: false
+comments: false
+permalink: /private/xxxx/  # 自定义访问路径
+---
+
+{% raw %}
+<!-- 1. 屏蔽Butterfly主题 + 整合轮播样式 -->
+<style>
+        /* ========== 核心：完全禁用Butterfly主题所有元素 ========== */
+        /* 清除主题容器的所有样式 */
+        #page, #content-inner, .layout {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+        }
+        /* 隐藏所有主题默认元素（优先级最高） */
+        #page-header, #nav, #sidebar, #footer, .post-copyright, .post-meta, .post-tags,
+        .breadcrumbs, .aside-content, .sticky_layout, #rightside, .post-title, .layout>.aside,
+        .content-wrap>.aside, .sidebar-dock, .toc-container, .post-info, .post-content,
+        .category-lists, .tag-cloud, .pagination, .archive-year, .archive-month,
+        .post-widget, .related-posts, .comment-wrap, .gitalk-container {
+            display: none !important;
+            pointer-events: none !important;
+        }
+</style>
+
+<!-- ========== 第二步：原代码100%复制（仅改图片路径） ========== -->
+<style>
+    /* 原代码的style内容：一行没改 */
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+        background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+        overflow: hidden;
+    }
+
+    .shell {
+        position: relative;
+        width: 60vw;
+        height: 40vw;
+        max-width: 380px;
+        max-height: 250px;
+        margin: 0;
+        color: white;
+        perspective: 1000px;
+        transform-origin: center;
+    }
+
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-origin: center;
+        transform-style: preserve-3d;
+        transform: translateZ(-30vw) rotateY(0);
+        animation: carousel 9s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    }
+
+    .item {
+        position: absolute;
+        width: 60vw;
+        height: 40vw;
+        max-width: 380px;
+        max-height: 250px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        border-radius: 6px;
+        background-size: cover;
+        -webkit-box-reflect: below 25px -webkit-linear-gradient(transparent 50%, rgba(255, 255, 255, 0.3));
+    }
+
+    /* 唯一修改：把原路径./01.jpg改成Hexo的绝对路径（这步必须，否则图片找不到） */
+    .item:nth-child(1) {
+        background-image: url(/images/private_pic/2025-11-26-yee-yi-birthday_1.jpg); /* 只改这里的路径，其他不动 */
+        transform: rotateY(0) translateZ(35vw);
+    }
+
+    .item:nth-child(2) {
+        background-image: url(/images/private_pic/2025-11-26-yee-yi-birthday_2.jpg); /* 只改这里的路径，其他不动 */
+        transform: rotateY(120deg) translateZ(35vw);
+    }
+
+    .item:nth-child(3) {
+        background-image: url(/images/private_pic/2025-11-26-yee-yi-birthday_3.jpg); /* 只改这里的路径，其他不动 */
+        transform: rotateY(240deg) translateZ(35vw);
+    }
+
+    @keyframes carousel {
+        0%,
+        17.5% {
+            transform: translateZ(-35vw) rotateY(0);
+        }
+
+        27.5%,
+        45% {
+            transform: translateZ(-35vw) rotateY(-120deg);
+        }
+
+        55%,
+        72.5% {
+            transform: translateZ(-35vw) rotateY(-240deg);
+        }
+
+        82.5%,
+        100% {
+            transform: translateZ(-35vw) rotateY(-360deg);
+        }
+    }
+</style>
+
+<!-- 原代码的body内容：100%复制，一行没改 -->
+<div class="shell">
+    <div class="content">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</div>
+
+{% endraw %}

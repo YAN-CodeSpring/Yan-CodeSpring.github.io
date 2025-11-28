@@ -1,0 +1,148 @@
+---
+title: 测试页面
+date: 2025-11-28
+categories: [private]
+tags: []
+toc: false
+comments: false
+permalink: /private/xxxx/  # 自定义访问路径
+---
+
+{% raw %}
+<!-- 1. 屏蔽Butterfly主题 + 整合轮播样式 -->
+<style>
+        /* ========== 核心：完全禁用Butterfly主题所有元素 ========== */
+        /* 清除主题容器的所有样式 */
+        #page, #content-inner, .layout {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+        }
+        /* 隐藏所有主题默认元素（优先级最高） */
+        #page-header, #nav, #sidebar, #footer, .post-copyright, .post-meta, .post-tags,
+        .breadcrumbs, .aside-content, .sticky_layout, #rightside, .post-title, .layout>.aside,
+        .content-wrap>.aside, .sidebar-dock, .toc-container, .post-info, .post-content,
+        .category-lists, .tag-cloud, .pagination, .archive-year, .archive-month,
+        .post-widget, .related-posts, .comment-wrap, .gitalk-container {
+            display: none !important;
+            pointer-events: none !important;
+        }
+</style>
+
+<!-- ========== 第二步：原代码100%复制 ========== -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yan CodeSpring</title>
+    <!-- 引入字体 -->
+    <link href="https://fonts.googleapis.com/css?family=Montez" rel="stylesheet">
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            background-color: mistyrose;
+            font-family: 'Montez', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .shell {
+            width: 1000px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        span {
+            color: transparent;
+        }
+
+        #left {
+            float: left;
+            height: 500px;
+            width: 50%;
+            /* 定义形状左半圆 */
+            shape-outside: polygon(51.33% 12px, 100.03% 2.17%,
+                    97.87% 19.59%, 92.11% 16.84%, 83.26% 12.61%,
+                    72.27% 12.33%, 59.8% 17.47%, 53.86% 27.8%,
+                    52.21% 37.23%, 58.14% 52.53%, 68.47% 64.73%,
+                    99% 87%, 217px 86.93%);
+        }
+
+        #right {
+            float: right;
+            height: 500px;
+            width: 50%;
+            /* 定义形状右半圆 */
+            shape-outside: polygon(70.33% 13px, 0.92% 2.68%,
+                    0.92% 19.57%, 5.42% 18.47%, 9.85% 15.59%,
+                    23.11% 11.65%, 32.26% 13.97%, 38.67% 16.73%,
+                    43.4% 23.07%, 47.06% 29.8%, 46.41% 44.23%,
+                    38.14% 57.33%, 26.67% 68.73%, 0.4% 87%, 353px 84.73%);
+        }
+
+        p {
+            text-align: justify;
+            color: #922a2a;
+            position: relative;
+        }
+
+        p:before {
+            content: "Love Ikun";
+            position: absolute;
+            font-size: 85px;
+            top: -20px;
+            right: 0;
+            left: 20px;
+            letter-spacing: 8px;
+            /* 空隙 */
+            word-spacing: 11px;
+            text-align: center;
+        }
+
+        #span2 {
+            color: inherit;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <div id="left"></div>
+        <div id="right"></div>
+        <!-- 第一个字的排版请注意，先看预览。整体是爱心的形状 -->
+        <p>
+            Most beautiful lady.I get lost just looking at you. I don't know what happens
+            but I just can't help but smile with my eyes closed.
+            There's this feeling of satisfaction that just flashes by, and the thought that you are mine just makes my
+            heart smile.
+            I always knew that love was dangerous, kinda poisonous too. I didn't believe it at first but it's really
+            catching up on me. I can feel that blood rushing a little bit faster when you hugging me.
+            Every day is a just but a day when you not around. An empty day.
+            You are my obsession. You are mine.
+            I love you more every passing day.
+            Being with you is like watching the sunrise every day and never getting tired of waiting for the next day to
+            see it all over again.
+            I'll never get tired of loving you and saying I love.
+            I have ran out of words how very important you are in my life.
+            I can't start explaining how special you make me feel.
+            I know our love is meant to last.
+            I just hope you'll still be mine even after whatever is after eternity.
+            <span id="span2"></span>
+        </p>
+    </div>
+</body>
+
+</html>
+
+{% endraw %}
