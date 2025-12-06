@@ -1,0 +1,554 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Serena | Code Spring</title><meta name="author" content="言如泉"><meta name="copyright" content="言如泉"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="&#x2F;* 清除核心容器#page的白色背景和边框 *&#x2F; #page {     background: transparent !important; &#x2F;* 完全透明背景 *&#x2F;     border: none !important; &#x2F;* 去掉边框 *&#x2F;     padding: 0 !important; &#x2F;* 清除内边距（解决留白） *&#x2F;     margin: 0 !important;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Serena">
+<meta property="og:url" content="http://example.com/private/serena/index.html">
+<meta property="og:site_name" content="Code Spring">
+<meta property="og:description" content="&#x2F;* 清除核心容器#page的白色背景和边框 *&#x2F; #page {     background: transparent !important; &#x2F;* 完全透明背景 *&#x2F;     border: none !important; &#x2F;* 去掉边框 *&#x2F;     padding: 0 !important; &#x2F;* 清除内边距（解决留白） *&#x2F;     margin: 0 !important;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/think_pic/2025-06-27.jpg">
+<meta property="article:published_time" content="2025-12-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-06T09:14:58.433Z">
+<meta property="article:author" content="言如泉">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/think_pic/2025-06-27.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/private/serena/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Serena',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/think_pic/2025-06-27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw far fa-folder-open"></i><span> File</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Learn/"><i class="fa-fw fas fa-graduation-cap"></i><span> To Learn</span></a></li><li><a class="site-page child" href="/categories/Read/"><i class="fa-fw fas fa-book"></i><span> To Read</span></a></li><li><a class="site-page child" href="/categories/Listen/"><i class="fa-fw fas fa-music"></i><span> To Listen</span></a></li><li><a class="site-page child" href="/categories/Think/"><i class="fa-fw fas fa-icons"></i><span> To Think</span></a></li><li><a class="site-page child" href="/categories/Play/"><i class="fa-fw fas fa-gamepad"></i><span> To Play</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Time</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(/images/top_pic/top_default.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Code Spring</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw far fa-folder-open"></i><span> File</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Learn/"><i class="fa-fw fas fa-graduation-cap"></i><span> To Learn</span></a></li><li><a class="site-page child" href="/categories/Read/"><i class="fa-fw fas fa-book"></i><span> To Read</span></a></li><li><a class="site-page child" href="/categories/Listen/"><i class="fa-fw fas fa-music"></i><span> To Listen</span></a></li><li><a class="site-page child" href="/categories/Think/"><i class="fa-fw fas fa-icons"></i><span> To Think</span></a></li><li><a class="site-page child" href="/categories/Play/"><i class="fa-fw fas fa-gamepad"></i><span> To Play</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Time</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">Serena</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container">
+<!-- ====================  1.  样式  ==================== -->
+<style>
+/* 清除核心容器#page的白色背景和边框 */
+#page {
+    background: transparent !important; /* 完全透明背景 */
+    border: none !important; /* 去掉边框 */
+    padding: 0 !important; /* 清除内边距（解决留白） */
+    margin: 0 !important; /* 清除外边距 */
+    box-shadow: none !important; /* 去掉可能的阴影 */
+}
+
+/* 确保其父容器也无背景（保险措施） */
+#content-inner, .layout {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ① 主题元素隐藏 */
+#page-header,#nav,#sidebar,#footer,.post-copyright,.post-meta,.post-tags,
+.breadcrumbs,.aside-content,.sticky_layout,#rightside,.post-title,.layout>.aside,
+.content-wrap>.aside,.sidebar-dock,.toc-container{ display:none !important; pointer-events:none !important;}
+
+/* ② 全屏背景：合照 + 黑色半透明遮罩 */
+html,body{
+    margin:0 !important; padding:0 !important; height:100vh !important;
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    overflow-x:hidden !important;
+}
+body{
+    height:auto !important; min-height:100vh !important;
+    background:#000;                      /* 底色 */
+}
+body::before{                            /* 背景图 */
+    content:"";
+    position:fixed;
+    inset:0; /* 全屏覆盖 */
+    padding: 0 20px; /* 左右各20px留边，上下无；若需上下也留边，改为 padding: 20px; */
+    background:url("/images/private_pic/2025-12-06-display_4_1.png") center/contain no-repeat;
+    background-origin: content-box; /* 背景图片仅在内容区显示（padding区显示body的黑色） */
+    filter:brightness(1.1) blur(0.3px); /* 亮度+模糊 组合效果 */
+    z-index:-2;
+}
+
+body::after{                             /* 黑色半透明遮罩 */
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.35);
+    z-index:-1;
+}
+
+/* ③ 信件容器 */
+#birthday-letter-container{
+    width:800px !important;              /* 电脑端宽度 */
+    margin:50px auto !important;
+    font-family:'Segoe UI','Microsoft YaHei',sans-serif !important;
+    background:none;                     /* 无背景 */
+    backdrop-filter:none;                /* 无模糊 */
+    border: none;                        /* 无边框 */
+    border-radius:16px !important;       /* 圆角 */
+    position:relative !important;
+    z-index:999 !important;
+}
+
+/* 标题样式：带模糊阴影 */
+.birthday-title{
+    font-size:3em;
+    color:#fff;
+    text-align:center;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.6), /* 外层阴影 */
+                 0 1px 5px rgba(255,255,255,0.2); /* 内层高光 */
+    animation:bounce 2s infinite;
+}
+
+/* 打字机信件容器（合并重复样式，保留完整定义） */
+#letter{
+    font-size:1.25em;
+    line-height:1.9;
+    margin:30px 0;
+    padding:25px;
+    background:none;          /* 无背景 */
+    border-left:3px solid rgba(255,255,255,.6); /* 左侧装饰线 */
+    border-radius:10px;
+    min-height:280px;
+    color:#fff;               /* 白色文字 */
+    text-shadow: 0 1px 8px rgba(0,0,0,0.7); /* 文字模糊阴影 */
+    animation:slideDown .8s ease-out; /* 下滑动画 */
+    /* 以下 2 行是强制换行关键，覆盖默认行为 */
+    white-space: pre-wrap !important; /* 保留所有换行和空格，超出容器自动换行 */
+    word-break: break-all !important; /* 中文强制换行，避免手机端文字溢出 */
+}
+
+/* 闪烁光标 */
+#cursor{
+    display:inline-block; width:2px; height:1.1em;
+    background:#ff6b6b; vertical-align:text-bottom;
+    animation:blink 1s infinite;
+}
+
+/* 按钮行 */
+.button-row{ text-align:center; margin-top:20px; }
+.birthday-button{
+    background:linear-gradient(45deg,#ff6b6b,#ff8787);
+    color:#fff; border:none; padding:12px 26px; font-size:1.1em;
+    border-radius:50px; cursor:pointer; margin:8px;
+    box-shadow:0 4px 15px rgba(255,107,107,.4);
+    transition:all .3s ease;
+}
+.birthday-button:hover{ transform:translateY(-3px); box-shadow:0 6px 20px rgba(255,107,107,.6); }
+
+/* 弹窗样式 */
+.modal{ display:none; position:fixed; z-index:1000; inset:0; background:rgba(0,0,0,.8); }
+.modal-content{ background:#fff9e6; margin:15% auto; padding:30px; border-radius:20px; width:80%; max-width:500px; text-align:center; animation:modalFadeIn .5s; }
+.close{ float:right; font-size:28px; cursor:pointer; color:#aaa; }
+.close:hover{ color:#e91e63; }
+.cake-icon{ font-size:4em; animation:none; }
+
+/* 爱心飘落 */
+.heart{ position:fixed; top:-50px; left:calc(100vw * var(--rand-x)); font-size:20px; color:#ff6b6b; pointer-events:none; animation:float 6s linear infinite; }
+@keyframes float{ 0%{transform:translateY(0) rotate(0deg); opacity:1;} 100%{transform:translateY(110vh) rotate(360deg); opacity:0;} }
+.heart{ z-index:9999; }
+
+/* 关键帧动画 */
+@keyframes modalFadeIn{ from{opacity:0; transform:scale(.8);} to{opacity:1; transform:scale(1);} }
+@keyframes bounce{ 0%,20%,50%,80%,100%{transform:translateY(0);} 40%{transform:translateY(-20px);} 60%{transform:translateY(-10px);} }
+@keyframes slideDown { 0%{transform:translateY(-50px); opacity:0;} 100%{transform:translateY(0); opacity:1;} }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
+/* 手机适配：媒体查询（放在<style>内，确保CSS生效） */
+@media (max-width: 768px) {
+    /* 新增：修复手机端滑不到顶部的问题 */
+    html, body {
+        display: block !important; /* 取消flex布局，恢复正常滚动 */
+        align-items: normal !important;
+        justify-content: normal !important;
+    }
+
+    #birthday-letter-container {
+        width: 90% !important; /* 手机端宽度 */
+        max-width: 480px !important;
+        padding: 20px 10px !important;
+        margin: 30px auto !important; /* 顶部留30px空隙，更美观 */
+    }
+    .birthday-title {
+        font-size: 2em !important; /* 标题缩小 */
+    }
+    #letter {
+        font-size: 1em !important; /* 正文缩小 */
+        padding: 15px !important;
+        min-height: auto !important;
+        /* 以下 2 行是强制换行关键，覆盖默认行为 */
+        white-space: pre-wrap !important; /* 保留所有换行和空格，超出容器自动换行 */
+        word-break: break-all !important; /* 中文强制换行，避免手机端文字溢出 */
+    }
+    .birthday-button {
+        padding: 10px 20px !important;
+        font-size: 1em !important;
+        margin: 5px 3px !important;
+    }
+    .button-row {
+        margin-top: 15px !important;
+    }
+    body::before {
+        background-size: contain !important; /* 改为contain，完整显示图片 */
+        background-origin: content-box !important; /* 同步内容区规则 */
+        padding: 0 10px !important; /* 手机端留边更小，适配屏幕 */
+    }
+}
+
+</style>
+
+<!-- ====================  2.  结构  ==================== -->
+<div id="birthday-letter-container">
+    <h1 class="birthday-title"> 🌸 ❄️ 我自万象，形无所定 💖 🔥 </h1>
+
+    <!-- 打字机信件 -->
+    <div id="letter">
+        <span id="typing"></span><span id="cursor"></span>
+    </div>
+
+    <div class="button-row">
+        <button class="birthday-button" onclick="openModal()">✨ 专属幸运密码 </button>
+        <button class="birthday-button" onclick="playYiYangQianXi()">🎶 小然为你弹琴 </button>
+    </div>
+</div>
+
+<!-- 弹窗 -->
+<div id="birthdayModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 style="color:#e91e63;"> 🌸 ❄️ 💖 🔥 </h2>
+        <p style="font-size:1.2em; color:#333;">
+            愿你像火焰一样，摇曳生辉🔥🌄<br>
+            愿你像流星一样，想即所得🌠✨<br>
+            愿你像杏花一样，永远幸福🌸💕
+        </p>
+        <div style="font-size:2em; margin:20px 0;">🔥 🌄 🌠 ✨ 🌸 💕</div>
+    </div>
+</div>
+
+<!-- ====================  3.  脚本  ==================== -->
+<script>
+/* -------------- 打字机效果（带自动获取当前时间）-------------- */
+// 时间格式化函数：自动获取当前时间，转成「YYYY.MM.DD HH:mm:ss」格式
+function formatCurrentTime() {
+    const now = new Date();
+    // 年、月、日（补0，确保两位数）
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // 月份从0开始，需+1
+    const day = String(now.getDate()).padStart(2, '0');
+    // 时、分、秒（补0）
+    const hour = String(now.getHours()).padStart(2, '0');
+    const minute = String(now.getMinutes()).padStart(2, '0');
+    const second = String(now.getSeconds()).padStart(2, '0');
+    // 拼接格式
+    return `${year}.${month}.${day}\n${hour}:${minute}:${second}`;
+}
+
+
+/* ---------- 打字机 ---------- */
+const letterText =
+`
+📃是受害者，也是加害者。🔄
+
+你是那样的特殊，如同天鹅群中那只羽翼乌黑的异类。 🦢🖤
+坐在教室的木椅子上 👩‍🎓，抬头望向窗外发呆，看着被铁栏杆框住的天空 ☁️，感受身上隐隐作痛的淤青 💥，耳边老师呢喃的声音 🗣️。
+你在想什么? 💭
+想那些匍匐在地的人轻声求饶，想着他们颤抖恐惧的身躯 🥺。
+兴奋像是一条蜿蜒的毒蛇，缠绕着动脉，呼吸被扼制 🐍🔮。
+指间不经意放在唇边，张口啃咬着死皮，直到点点血珠冒出才停止 🩹。
+你不曾同情每一位向你求饶的人，将他们的求饶默认为兴奋地呐喊，渴望但又悲剧地生活，度过重复而又漫长的七天，再次重复这
+物料用地的日子。
+像梅雨季混合在一起的颜料，潮湿又怪异 🌧️🎨。
+
+
+ ✨见过她的人定会想起火焰 🔥。
+
+抬眼去只看见一个背影，像从麻木灰白的世界里跳脱出的光线，从万千虔心中生出的，最诚然的不愿 🙏➡️💫。
+若说耀眼，其实也沉下来，走入人生海海 🌊；若说缄默，却又总是太轻快，像风吹过草原 🌬️🍃，像雨坠落人间 🌧️👣，像点在心头的大火轰轰烈烈 🔥💓，烧掉一切冷眼 👀🔥。
+这一路，要走得快，要跳得远，要潇潇洒洒，踏过经年不变的冻原 🏃‍♀️❄️。人世间有太多的不敢，太多的不解——别去管这千百的理由，只要往前走，把所有东西都甩在身后 🚶‍♀️💨。
+直到终有一天，不再害怕连天的大雪 ☃️。
+
+${formatCurrentTime()}
+
+`;
+
+const typingEl = document.getElementById('typing');
+let idx = 0;
+
+function typeChar() {
+    if (idx >= letterText.length) return;
+    const ch = letterText.charAt(idx);
+    if (ch === '\n') {
+        typingEl.innerHTML += '<br>';
+    } else {
+        typingEl.innerHTML += ch;
+    }
+    idx++;
+    setTimeout(typeChar, 80);
+}
+
+window.addEventListener('DOMContentLoaded', typeChar);
+
+/* -------------- 爱心飘落 -------------- */
+function createHeart() {
+    const h = document.createElement('div');
+    h.className = 'heart';
+    h.innerHTML = '💕';
+    h.style.setProperty('--rand-x', Math.random());
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6000);
+}
+setInterval(createHeart, 300);
+
+/* -------------- 弹窗控制 -------------- */
+function openModal() { document.getElementById('birthdayModal').style.display = 'block'; }
+function closeModal() { document.getElementById('birthdayModal').style.display = 'none'; }
+window.onclick = function (e) {
+    const m = document.getElementById('birthdayModal');
+    if (e.target === m) m.style.display = 'none';
+};
+
+/* -------------- 音乐播放 -------------- */
+// 生日歌
+function playMusic() {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const notes = [
+        264,264,297,264,352,330,0, // 第6个音符后停顿（对应“祝你生日快乐”第一句结尾）
+        264,264,297,264,396,352,0, // 第二句结尾停顿
+        264,264,528,440,352,330,297,0, // 第三句结尾停顿
+        466,466,440,352,396,352       // 最后一句无停顿
+    ];
+    const dur = 0.6;
+    notes.forEach((f, i) => {
+        setTimeout(() => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain); gain.connect(ctx.destination);
+            osc.frequency.value = f; osc.type = 'sine';
+            gain.gain.setValueAtTime(0.3, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + dur);
+            osc.start(); osc.stop(ctx.currentTime + dur);
+        }, i * dur * 1000);
+    });
+}
+
+// 易烊千玺歌曲
+let yiYangQianXiAudio = null;
+function playYiYangQianXi() {
+    if (!yiYangQianXiAudio) {
+        yiYangQianXiAudio = new Audio("/images/private_pic/display_4.WAV");
+    }
+    yiYangQianXiAudio.currentTime = 0;
+    yiYangQianXiAudio.play().catch(err => alert("播放失败，请检查链接或允许浏览器播放音频~"));
+}
+
+/* -------------- 加载欢迎 -------------- */
+window.addEventListener('load', () => {
+    setTimeout(() => alert('🌸泥嚎呀，我叫然子，欢迎你来看我!'), 1000);
+});
+</script>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/think_pic/2025-06-27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">言如泉</div><div class="author-info-description">什么都写点，各位见笑了。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/YAN-CodeSpring"><i class="fab fa-github"></i><span>在GitHub上关注我！</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/YAN-CodeSpring" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:yan.codespring@gmail.com" target="_blank" title="Email"><i class="far fa-envelope" style="color: #24292e;"></i></a><a class="social-icon" href="https://space.bilibili.com/1324439158?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.zhihu.com/people/10-44-3-50-19" target="_blank" title="知乎"><i class="fab fa-zhihu" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E8%AF%BB%E7%82%B9%E4%B9%A6-2025-09-09-wakeup.html" title="《认知觉醒》读书睡前小记"><img src="/images/cover/cover_7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《认知觉醒》读书睡前小记"/></a><div class="content"><a class="title" href="/%E8%AF%BB%E7%82%B9%E4%B9%A6-2025-09-09-wakeup.html" title="《认知觉醒》读书睡前小记">《认知觉醒》读书睡前小记</a><time datetime="2025-09-09T06:33:31.000Z" title="发表于 2025-09-09 14:33:31">2025-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-09-09-forgive.html" title="论原谅"><img src="/images/cover/cover_8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论原谅"/></a><div class="content"><a class="title" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-09-09-forgive.html" title="论原谅">论原谅</a><time datetime="2025-09-09T05:37:23.000Z" title="发表于 2025-09-09 13:37:23">2025-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-linux-wsl.html" title="比双系统方便的Linux——wsl！"><img src="/images/cover/cover_8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="比双系统方便的Linux——wsl！"/></a><div class="content"><a class="title" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-linux-wsl.html" title="比双系统方便的Linux——wsl！">比双系统方便的Linux——wsl！</a><time datetime="2025-08-27T12:24:52.000Z" title="发表于 2025-08-27 20:24:52">2025-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-learnsource.html" title="学习资料网站（欢迎收藏）"><img src="/images/cover/cover_4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="学习资料网站（欢迎收藏）"/></a><div class="content"><a class="title" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-learnsource.html" title="学习资料网站（欢迎收藏）">学习资料网站（欢迎收藏）</a><time datetime="2025-08-27T12:20:14.000Z" title="发表于 2025-08-27 20:20:14">2025-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-knn.html" title="KNN手写数字识别"><img src="/images/cover/cover_1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="KNN手写数字识别"/></a><div class="content"><a class="title" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-knn.html" title="KNN手写数字识别">KNN手写数字识别</a><time datetime="2025-08-27T12:17:33.000Z" title="发表于 2025-08-27 20:17:33">2025-08-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Learn/"><span class="card-category-list-name">Learn</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Read/"><span class="card-category-list-name">Read</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Think/"><span class="card-category-list-name">Think</span><span class="card-category-list-count">3</span></a></li>
+          </ul></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              九月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">6</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">13</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2025-06-27T15:46:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">22.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-12-06T09:15:12.463Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: Grey;"><div id="footer-wrap"><div class="copyright">&copy;2025 By 言如泉</div><div class="footer_custom_text">Welcome To Contact Me.</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
