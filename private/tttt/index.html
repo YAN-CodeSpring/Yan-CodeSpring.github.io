@@ -1,0 +1,711 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>canvas测试 | Code Spring</title><meta name="author" content="言如泉"><meta name="copyright" content="言如泉"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="&#x2F;* 清除主题容器的所有样式 *&#x2F;         #page, #content-inner, .layout {             background: transparent !important;             border: none !important;             padding: 0 !important;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="canvas测试">
+<meta property="og:url" content="http://example.com/private/tttt/index.html">
+<meta property="og:site_name" content="Code Spring">
+<meta property="og:description" content="&#x2F;* 清除主题容器的所有样式 *&#x2F;         #page, #content-inner, .layout {             background: transparent !important;             border: none !important;             padding: 0 !important;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/think_pic/2025-06-27.jpg">
+<meta property="article:published_time" content="2025-12-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-11T06:31:48.913Z">
+<meta property="article:author" content="言如泉">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/think_pic/2025-06-27.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/private/tttt/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'canvas测试',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/think_pic/2025-06-27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw far fa-folder-open"></i><span> File</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Learn/"><i class="fa-fw fas fa-graduation-cap"></i><span> To Learn</span></a></li><li><a class="site-page child" href="/categories/Read/"><i class="fa-fw fas fa-book"></i><span> To Read</span></a></li><li><a class="site-page child" href="/categories/Listen/"><i class="fa-fw fas fa-music"></i><span> To Listen</span></a></li><li><a class="site-page child" href="/categories/Think/"><i class="fa-fw fas fa-icons"></i><span> To Think</span></a></li><li><a class="site-page child" href="/categories/Play/"><i class="fa-fw fas fa-gamepad"></i><span> To Play</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Time</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(/images/top_pic/top_default.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Code Spring</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw far fa-folder-open"></i><span> File</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Learn/"><i class="fa-fw fas fa-graduation-cap"></i><span> To Learn</span></a></li><li><a class="site-page child" href="/categories/Read/"><i class="fa-fw fas fa-book"></i><span> To Read</span></a></li><li><a class="site-page child" href="/categories/Listen/"><i class="fa-fw fas fa-music"></i><span> To Listen</span></a></li><li><a class="site-page child" href="/categories/Think/"><i class="fa-fw fas fa-icons"></i><span> To Think</span></a></li><li><a class="site-page child" href="/categories/Play/"><i class="fa-fw fas fa-gamepad"></i><span> To Play</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Time</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">canvas测试</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container">
+<style>
+        /* 清除主题容器的所有样式 */
+        #page, #content-inner, .layout {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+        }
+        /* 隐藏所有主题默认元素（优先级最高） */
+        #page-header, #nav, #sidebar, #footer, .post-copyright, .post-meta, .post-tags,
+        .breadcrumbs, .aside-content, .sticky_layout, #rightside, .post-title, .layout>.aside,
+        .content-wrap>.aside, .sidebar-dock, .toc-container, .post-info, .post-content,
+        .category-lists, .tag-cloud, .pagination, .archive-year, .archive-month,
+        .post-widget, .related-posts, .comment-wrap, .gitalk-container {
+            display: none !important;
+            pointer-events: none !important;
+        }
+/* ① 主题元素隐藏 */
+#page-header,#nav,#sidebar,#footer,.post-copyright,.post-meta,.post-tags,
+.breadcrumbs,.aside-content,.sticky_layout,#rightside,.post-title,.layout>.aside,
+.content-wrap>.aside,.sidebar-dock,.toc-container{ display:none !important; pointer-events:none !important;}
+
+</style>
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原创角色展示 | Character Profile</title>
+    <!-- 引入 Tailwind CSS 进行快速样式开发 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 FontAwesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 自定义字体 (可选) */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #0f172a; /* 深色背景 */
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* 视差滚动核心样式 */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh; /* 全屏高度 */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 遮罩层，让文字更清晰 */
+        .overlay {
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 隐藏滚动条但保留功能 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+
+        /* 手风琴动画 */
+        .accordion-content {
+            transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-content.active {
+            opacity: 1;
+        }
+
+        /* 瀑布流布局 */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1rem;
+        }
+        @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .masonry-item:hover {
+            transform: scale(1.02);
+            z-index: 10;
+        }
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            border-radius: 0.5rem;
+        }
+
+        /* 简单的淡入动画类 */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-widest uppercase text-purple-400">Project OC</div>
+            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-wide">
+                <a href="#hero" class="hover:text-purple-400 transition">主页</a>
+                <a href="#about" class="hover:text-purple-400 transition">档案</a>
+                <a href="#gallery" class="hover:text-purple-400 transition">画廊</a>
+                <a href="#story" class="hover:text-purple-400 transition">故事</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. 视差滚动：Hero 区域 (首页大图) -->
+    <!-- TODO: 将下方的 url 替换为你的角色横版立绘或场景图 -->
+    <header id="hero" class="parallax" style="background-image: url('https://placehold.co/1920x1080/2a1b3d/FFF?text=Hero+Image+(Parallax)');">
+        <div class="overlay"></div>
+        <div class="relative z-10 text-center px-4 fade-in-section">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-lg">角色名称</h1>
+            <p class="text-xl md:text-2xl text-purple-200 italic font-light">"这里写一句角色的核心台词或座右铭..."</p>
+            <div class="mt-8">
+                <a href="#about" class="px-8 py-3 border border-white/30 text-white rounded-full hover:bg-white hover:text-black transition duration-300 backdrop-blur-sm">
+                    查看档案
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. 角色卡片 (手风琴样式) -->
+    <section id="about" class="py-20 bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12 items-start">
+                
+                <!-- 左侧：角色立绘 -->
+                <!-- TODO: 替换为竖版角色立绘 -->
+                <div class="lg:w-1/3 sticky top-24 fade-in-section">
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-purple-900/20 border border-slate-700">
+                        <img src="https://placehold.co/600x900/1e293b/FFF?text=Character+Portrait" alt="Character Portrait" class="w-full h-auto object-cover">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <h3 class="text-2xl font-bold text-white">角色代号</h3>
+                            <p class="text-purple-300">Class / Role</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧：手风琴信息卡 -->
+                <div class="lg:w-2/3 w-full space-y-4 fade-in-section">
+                    <h2 class="text-3xl font-bold mb-8 border-l-4 border-purple-500 pl-4">角色档案</h2>
+
+                    <!-- 手风琴项 1: 基本信息 -->
+                    <div class="accordion-item border border-slate-700 rounded-lg bg-slate-800/50 overflow-hidden">
+                        <button class="accordion-header w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-700/50 transition focus:outline-none">
+                            <span class="text-lg font-semibold text-purple-300"><i class="fas fa-id-card mr-2"></i> 基本信息 (Basic Info)</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300 transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-6 border-t border-slate-700 grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-300">
+                                <div><span class="text-slate-500 block text-xs uppercase">全名</span> 奥瑞利亚 · 晨星</div>
+                                <div><span class="text-slate-500 block text-xs uppercase">年龄</span> 24岁</div>
+                                <div><span class="text-slate-500 block text-xs uppercase">种族</span> 精灵 / 人类混血</div>
+                                <div><span class="text-slate-500 block text-xs uppercase">身高/体重</span> 172cm / 58kg</div>
+                                <div class="col-span-1 md:col-span-2"><span class="text-slate-500 block text-xs uppercase">出生地</span> 银月森林边境</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 手风琴项 2: 能力数值 -->
+                    <div class="accordion-item border border-slate-700 rounded-lg bg-slate-800/50 overflow-hidden">
+                        <button class="accordion-header w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-700/50 transition focus:outline-none">
+                            <span class="text-lg font-semibold text-purple-300"><i class="fas fa-chart-radar mr-2"></i> 能力参数 (Stats)</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-6 border-t border-slate-700 space-y-4">
+                                <!-- 进度条组件 -->
+                                <div>
+                                    <div class="flex justify-between mb-1"><span class="text-sm">力量 (STR)</span><span class="text-sm">B</span></div>
+                                    <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                        <div class="bg-purple-600 h-2.5 rounded-full" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1"><span class="text-sm">敏捷 (AGI)</span><span class="text-sm">S</span></div>
+                                    <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                        <div class="bg-purple-600 h-2.5 rounded-full" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1"><span class="text-sm">魔力 (INT)</span><span class="text-sm">A+</span></div>
+                                    <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                        <div class="bg-purple-600 h-2.5 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 手风琴项 3: 喜好与厌恶 -->
+                    <div class="accordion-item border border-slate-700 rounded-lg bg-slate-800/50 overflow-hidden">
+                        <button class="accordion-header w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-700/50 transition focus:outline-none">
+                            <span class="text-lg font-semibold text-purple-300"><i class="fas fa-heart mr-2"></i> 喜好与厌恶 (Likes & Dislikes)</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-6 border-t border-slate-700">
+                                <div class="mb-4">
+                                    <h4 class="text-green-400 mb-2 font-bold">Likes</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-slate-700 rounded-full text-xs">古老的书籍</span>
+                                        <span class="px-3 py-1 bg-slate-700 rounded-full text-xs">雨后的空气</span>
+                                        <span class="px-3 py-1 bg-slate-700 rounded-full text-xs">甜食</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-red-400 mb-2 font-bold">Dislikes</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-slate-700 rounded-full text-xs">炎热的天气</span>
+                                        <span class="px-3 py-1 bg-slate-700 rounded-full text-xs">虚伪的人</span>
+                                        <span class="px-3 py-1 bg-slate-700 rounded-full text-xs">苦咖啡</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 手风琴项 4: 背景故事简述 -->
+                    <div class="accordion-item border border-slate-700 rounded-lg bg-slate-800/50 overflow-hidden">
+                        <button class="accordion-header w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-700/50 transition focus:outline-none">
+                            <span class="text-lg font-semibold text-purple-300"><i class="fas fa-book-open mr-2"></i> 背景简介 (Background)</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-6 border-t border-slate-700 text-slate-300 leading-relaxed">
+                                <p>这里可以填写你的角色背景故事摘要。例如：她出生在一个被遗忘的村落，自幼便展现出惊人的魔法天赋...</p>
+                                <br>
+                                <p>点击这里可以放入更多文字，或者链接到详细的设定文档。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 视差分隔图 -->
+    <section class="parallax" style="background-image: url('https://placehold.co/1920x800/4c1d95/FFF?text=Atmospheric+Background'); min-height: 400px;">
+        <div class="overlay"></div>
+        <div class="relative z-10 text-center p-8 fade-in-section">
+            <h2 class="text-3xl md:text-5xl font-serif text-white mb-4">"命运不是被给予的，而是被夺取的。"</h2>
+            <div class="w-16 h-1 bg-purple-500 mx-auto"></div>
+        </div>
+    </section>
+
+    <!-- 3. 瀑布流画廊 -->
+    <section id="gallery" class="py-20 bg-slate-950">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in-section">
+                <h2 class="text-3xl font-bold text-white mb-2">印象画廊</h2>
+                <p class="text-slate-400">Concept Art & Illustrations</p>
+            </div>
+
+            <!-- Masonry Grid 容器 -->
+            <div class="masonry-grid fade-in-section">
+                
+                <!-- 预留图片位置：你可以随意复制这些 div 来增加图片 -->
+                <!-- 建议使用不同高度的图片来体现瀑布流效果 -->
+                
+                <div class="masonry-item" onclick="openLightbox(this)">
+                    <img src="https://placehold.co/400x600/334155/FFF?text=Art+1+(Vertical)" alt="Art 1">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white border border-white px-4 py-2 rounded-full">查看大图</span>
+                    </div>
+                </div>
+
+                <div class="masonry-item" onclick="openLightbox(this)">
+                    <img src="https://placehold.co/400x300/475569/FFF?text=Art+2+(Horizontal)" alt="Art 2">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white border border-white px-4 py-2 rounded-full">查看大图</span>
+                    </div>
+                </div>
+
+                <div class="masonry-item" onclick="openLightbox(this)">
+                    <img src="https://placehold.co/400x500/1e293b/FFF?text=Art+3+(Portrait)" alt="Art 3">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white border border-white px-4 py-2 rounded-full">查看大图</span>
+                    </div>
+                </div>
+
+                <div class="masonry-item" onclick="openLightbox(this)">
+                    <img src="https://placehold.co/400x400/0f172a/FFF?text=Art+4+(Square)" alt="Art 4">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white border border-white px-4 py-2 rounded-full">查看大图</span>
+                    </div>
+                </div>
+
+                <div class="masonry-item" onclick="openLightbox(this)">
+                    <img src="https://placehold.co/400x700/312e81/FFF?text=Art+5+(Tall)" alt="Art 5">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white border border-white px-4 py-2 rounded-full">查看大图</span>
+                    </div>
+                </div>
+                
+                 <div class="masonry-item" onclick="openLightbox(this)">
+                    <img src="https://placehold.co/400x350/581c87/FFF?text=Art+6+(Wide)" alt="Art 6">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white border border-white px-4 py-2 rounded-full">查看大图</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 故事片段区域 -->
+    <section id="story" class="py-20 bg-slate-900">
+        <div class="container mx-auto px-4 max-w-3xl fade-in-section">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">旅途记录</h2>
+            <div class="prose prose-invert prose-lg mx-auto text-slate-300">
+                <p>
+                    这里是放置长段文字的地方。你可以描述角色的关键剧情、如果你写小说的话，可以在这里放一个精彩的片段。
+                </p>
+                <blockquote class="border-l-4 border-purple-500 pl-4 italic my-6 text-slate-400 bg-slate-800 p-4 rounded-r">
+                    "引用框样式：当你在排版角色的日记或对话时，这种样式非常有用。"
+                </blockquote>
+                <p>
+                    HTML 结构允许你轻松地堆叠这些内容。如果需要插入插图，可以直接使用 `img` 标签。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-slate-500 py-8 text-center text-sm">
+        <p>&copy; 2023 Original Character Showcase. Created by You.</p>
+        <p class="mt-2 text-xs">Designed with HTML, Tailwind & Love.</p>
+    </footer>
+
+    <!-- 4. 灯箱 (Lightbox) 模态框 -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/90 hidden flex items-center justify-center opacity-0 transition-opacity duration-300" onclick="closeLightbox()">
+        <button class="absolute top-4 right-4 text-white text-4xl hover:text-purple-400">&times;</button>
+        <img id="lightbox-img" src="" alt="Full view" class="max-w-[90%] max-h-[90vh] rounded shadow-2xl transform scale-95 transition-transform duration-300">
+    </div>
+
+    <!-- 脚本逻辑 -->
+    <script>
+        // --- 1. 手风琴逻辑 (Accordion) ---
+        const accordions = document.querySelectorAll('.accordion-header');
+
+        accordions.forEach(acc => {
+            acc.addEventListener('click', function() {
+                // 切换当前项的状态
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.fa-chevron-down');
+                
+                // 如果想要保持只有一个展开，可以取消注释下面几行：
+                /*
+                document.querySelectorAll('.accordion-content').forEach(c => {
+                    if (c !== content) {
+                        c.style.maxHeight = null;
+                        c.classList.remove('active');
+                        // 重置图标
+                        c.previousElementSibling.querySelector('.fa-chevron-down').style.transform = 'rotate(0deg)';
+                    }
+                });
+                */
+
+                if (content.style.maxHeight) {
+                    // 关闭
+                    content.style.maxHeight = null;
+                    content.classList.remove('active');
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    // 打开
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.classList.add('active');
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // 默认打开第一个
+        if(accordions.length > 0) {
+            accordions[0].click();
+        }
+
+
+        // --- 2. 灯箱逻辑 (Lightbox) ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            lightboxImg.src = img.src;
+            
+            lightbox.classList.remove('hidden');
+            // 稍微延迟一下以触发CSS transition
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+            }, 10);
+            
+            // 禁止背景滚动
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // 恢复滚动
+            }, 300);
+        }
+
+
+        // --- 3. 滚动淡入动画 (Scroll Fade-in) ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // 动画只播放一次，取消观察
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+    </script>
+</body>
+</html>
+
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/think_pic/2025-06-27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">言如泉</div><div class="author-info-description">什么都写点，各位见笑了。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/YAN-CodeSpring"><i class="fab fa-github"></i><span>在GitHub上关注我！</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/YAN-CodeSpring" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:yan.codespring@gmail.com" target="_blank" title="Email"><i class="far fa-envelope" style="color: #24292e;"></i></a><a class="social-icon" href="https://space.bilibili.com/1324439158?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.zhihu.com/people/10-44-3-50-19" target="_blank" title="知乎"><i class="fab fa-zhihu" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E8%AF%BB%E7%82%B9%E4%B9%A6-2025-09-09-wakeup.html" title="《认知觉醒》读书睡前小记"><img src="/images/cover/cover_2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《认知觉醒》读书睡前小记"/></a><div class="content"><a class="title" href="/%E8%AF%BB%E7%82%B9%E4%B9%A6-2025-09-09-wakeup.html" title="《认知觉醒》读书睡前小记">《认知觉醒》读书睡前小记</a><time datetime="2025-09-09T06:33:31.000Z" title="发表于 2025-09-09 14:33:31">2025-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-09-09-forgive.html" title="论原谅"><img src="/images/cover/cover_8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论原谅"/></a><div class="content"><a class="title" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-09-09-forgive.html" title="论原谅">论原谅</a><time datetime="2025-09-09T05:37:23.000Z" title="发表于 2025-09-09 13:37:23">2025-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-linux-wsl.html" title="比双系统方便的Linux——wsl！"><img src="/images/cover/cover_4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="比双系统方便的Linux——wsl！"/></a><div class="content"><a class="title" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-linux-wsl.html" title="比双系统方便的Linux——wsl！">比双系统方便的Linux——wsl！</a><time datetime="2025-08-27T12:24:52.000Z" title="发表于 2025-08-27 20:24:52">2025-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-learnsource.html" title="学习资料网站（欢迎收藏）"><img src="/images/cover/cover_1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="学习资料网站（欢迎收藏）"/></a><div class="content"><a class="title" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-learnsource.html" title="学习资料网站（欢迎收藏）">学习资料网站（欢迎收藏）</a><time datetime="2025-08-27T12:20:14.000Z" title="发表于 2025-08-27 20:20:14">2025-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-knn.html" title="KNN手写数字识别"><img src="/images/cover/cover_3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="KNN手写数字识别"/></a><div class="content"><a class="title" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-knn.html" title="KNN手写数字识别">KNN手写数字识别</a><time datetime="2025-08-27T12:17:33.000Z" title="发表于 2025-08-27 20:17:33">2025-08-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Learn/"><span class="card-category-list-name">Learn</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Read/"><span class="card-category-list-name">Read</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Think/"><span class="card-category-list-name">Think</span><span class="card-category-list-count">3</span></a></li>
+          </ul></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              九月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">6</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">13</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2025-06-27T15:46:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">22.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-12-11T06:34:06.397Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: Grey;"><div id="footer-wrap"><div class="copyright">&copy;2025 By 言如泉</div><div class="footer_custom_text">Welcome To Contact Me.</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
