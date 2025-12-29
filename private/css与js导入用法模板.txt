@@ -1,12 +1,5 @@
----
-title: 你的页面标题
-date: 2025-11-28
-categories: [自定义] # 随便归类，不影响
-tags: []
-toc: false  # 关闭主题目录
-comments: false  # 关闭评论
-permalink: /private/test/  # 可选，自定义访问路径
----
+######滑到底有真正的屏蔽器######累死我了终于整出来了
+
 
 {% raw %}
 /* ========== 核心：完全禁用Butterfly主题所有元素 ========== */
@@ -46,6 +39,101 @@ permalink: /private/test/  # 可选，自定义访问路径
 <!-- 3. 引入独立JS文件（注意：如果JS依赖DOM，要加defer确保页面加载完再执行） -->
 <script src="/js/black_hole.js" defer></script>
 
-
-
 {% endraw %}
+
+
+
+
+################真正的屏蔽################
+################真正的屏蔽################
+################真正的屏蔽################
+################真正的屏蔽################
+################真正的屏蔽################
+
+<!-- 1. 屏蔽Butterfly主题 + 整合轮播样式 -->
+
+<style>
+        /* ========== 核心：完全禁用Butterfly主题所有元素 ========== */
+        /* 清除主题容器的所有样式 */
+        #page, #content-inner, .layout {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+        }
+        /* 隐藏所有主题默认元素（优先级最高） */
+        #page-header, #nav, #sidebar, #footer, .post-copyright, .post-meta, .post-tags,
+        .breadcrumbs, .aside-content, .sticky_layout, #rightside, .post-title, .layout>.aside,
+        .content-wrap>.aside, .sidebar-dock, .toc-container, .post-info, .post-content,
+        .category-lists, .tag-cloud, .pagination, .archive-year, .archive-month,
+        .post-widget, .related-posts, .comment-wrap, .gitalk-container {
+            display: none !important;
+            pointer-events: none !important;
+        }
+/* ========== 核心：彻底粉碎Butterfly主题容器限制 ========== */
+
+    /* 1. 强行重置 body 和 html，防止背景透色 */
+    html, body {
+        background-color: #0f172a !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    /* 2. 移除所有 Butterfly 布局容器的背景、阴影和边距 */
+    /* 针对右半部分出现深蓝色，通常是因为 #content-inner 或 .layout 有背景色 */
+    #body-wrap,
+    #content-inner,
+    .layout,
+    #page,
+    .recent-posts,
+    #article-container {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        width: 100% !important;
+        max-width: none !important; /* 关键：防止主题限制宽度产生左右缝隙 */
+    }
+
+    /* 3. 隐藏所有主题自带的 UI 元素 */
+    #page-header,
+    #nav,
+    #sidebar,
+    #footer,
+    .post-copyright,
+    .post-meta,
+    .post-tags,
+    .breadcrumbs,
+    .aside-content,
+    .sticky_layout,
+    #rightside,
+    .post-title,
+    .layout &gt; .aside,
+    .content-wrap &gt; .aside,
+    .sidebar-dock,
+    .toc-container,
+    .post-info,
+    .post-content,
+    .category-lists,
+    .tag-cloud,
+    .pagination,
+    .archive-year,
+    .archive-month,
+    .post-widget,
+    .related-posts,
+    .comment-wrap,
+    #web_bg,
+    .gitalk-container {
+        display: none !important;
+        pointer-events: none !important;
+    }
+
+    /* 修复 Hexo 可能生成的默认外边距 */
+    .layout {
+        display: block !important;
+    }
+
+</style>

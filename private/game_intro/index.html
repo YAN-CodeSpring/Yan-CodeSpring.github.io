@@ -1,0 +1,1016 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>风花雪月 | Code Spring</title><meta name="author" content="言如泉"><meta name="copyright" content="言如泉"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="&#x2F;* &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 核心：完全禁用Butterfly主题所有元素 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; *&#x2F;         &#x2F;* 清除主题容器的所有样式 *&#x2F;         #page, #content-inner, .layout {             background: transparent !important;             border: n">
+<meta property="og:type" content="website">
+<meta property="og:title" content="风花雪月">
+<meta property="og:url" content="http://example.com/private/game_intro/index.html">
+<meta property="og:site_name" content="Code Spring">
+<meta property="og:description" content="&#x2F;* &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 核心：完全禁用Butterfly主题所有元素 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; *&#x2F;         &#x2F;* 清除主题容器的所有样式 *&#x2F;         #page, #content-inner, .layout {             background: transparent !important;             border: n">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/think_pic/2025-06-27.jpg">
+<meta property="article:published_time" content="2025-12-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-29T17:13:04.501Z">
+<meta property="article:author" content="言如泉">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/think_pic/2025-06-27.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/private/game_intro/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '风花雪月',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/think_pic/2025-06-27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw far fa-folder-open"></i><span> File</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Learn/"><i class="fa-fw fas fa-graduation-cap"></i><span> To Learn</span></a></li><li><a class="site-page child" href="/categories/Read/"><i class="fa-fw fas fa-book"></i><span> To Read</span></a></li><li><a class="site-page child" href="/categories/Listen/"><i class="fa-fw fas fa-music"></i><span> To Listen</span></a></li><li><a class="site-page child" href="/categories/Think/"><i class="fa-fw fas fa-icons"></i><span> To Think</span></a></li><li><a class="site-page child" href="/categories/Play/"><i class="fa-fw fas fa-gamepad"></i><span> To Play</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Time</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(/images/top_pic/top_default.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Code Spring</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw far fa-folder-open"></i><span> File</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Learn/"><i class="fa-fw fas fa-graduation-cap"></i><span> To Learn</span></a></li><li><a class="site-page child" href="/categories/Read/"><i class="fa-fw fas fa-book"></i><span> To Read</span></a></li><li><a class="site-page child" href="/categories/Listen/"><i class="fa-fw fas fa-music"></i><span> To Listen</span></a></li><li><a class="site-page child" href="/categories/Think/"><i class="fa-fw fas fa-icons"></i><span> To Think</span></a></li><li><a class="site-page child" href="/categories/Play/"><i class="fa-fw fas fa-gamepad"></i><span> To Play</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Time</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">风花雪月</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container">
+
+
+<!-- 1. 屏蔽Butterfly主题 + 整合轮播样式 -->
+<style>
+        /* ========== 核心：完全禁用Butterfly主题所有元素 ========== */
+        /* 清除主题容器的所有样式 */
+        #page, #content-inner, .layout {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+        }
+        /* 隐藏所有主题默认元素（优先级最高） */
+        #page-header, #nav, #sidebar, #footer, .post-copyright, .post-meta, .post-tags,
+        .breadcrumbs, .aside-content, .sticky_layout, #rightside, .post-title, .layout>.aside,
+        .content-wrap>.aside, .sidebar-dock, .toc-container, .post-info, .post-content,
+        .category-lists, .tag-cloud, .pagination, .archive-year, .archive-month,
+        .post-widget, .related-posts, .comment-wrap, .gitalk-container {
+            display: none !important;
+            pointer-events: none !important;
+        }
+/* ========== 核心：彻底粉碎Butterfly主题容器限制 ========== */
+
+    /* 1. 强行重置 body 和 html，防止背景透色 */
+    html, body {
+        background-color: #0f172a !important; 
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    /* 2. 移除所有 Butterfly 布局容器的背景、阴影和边距 */
+    /* 针对右半部分出现深蓝色，通常是因为 #content-inner 或 .layout 有背景色 */
+    #body-wrap, 
+    #content-inner, 
+    .layout, 
+    #page, 
+    .recent-posts, 
+    #article-container {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        width: 100% !important;
+        max-width: none !important; /* 关键：防止主题限制宽度产生左右缝隙 */
+    }
+
+    /* 3. 隐藏所有主题自带的 UI 元素 */
+    #page-header, 
+    #nav, 
+    #sidebar, 
+    #footer, 
+    .post-copyright, 
+    .post-meta, 
+    .post-tags,
+    .breadcrumbs, 
+    .aside-content, 
+    .sticky_layout, 
+    #rightside, 
+    .post-title, 
+    .layout &gt; .aside,
+    .content-wrap &gt; .aside, 
+    .sidebar-dock, 
+    .toc-container, 
+    .post-info, 
+    .post-content,
+    .category-lists, 
+    .tag-cloud, 
+    .pagination, 
+    .archive-year, 
+    .archive-month,
+    .post-widget, 
+    .related-posts, 
+    .comment-wrap, 
+    #web_bg,
+    .gitalk-container {
+        display: none !important;
+        pointer-events: none !important;
+    }
+
+    /* 修复 Hexo 可能生成的默认外边距 */
+    .layout {
+        display: block !important;
+    }
+
+</style>
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>风花雪月 | 乙女游戏宣传</title>
+    <!-- Tailwind CSS for Layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Serif SC (Songti) and Ma Shan Zheng (Calligraphy) -->
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons (使用CDN引入图标库) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ink-black': '#1a1a1a',
+                        'paper-white': '#fdfbf7',
+                        'cinnabar': '#cd4338', // 朱砂
+                        'jade': '#5d7d7b',     // 玉色
+                        'gold': '#d4af37',     // 金
+                        'moon-blue': '#4e6d8a', // 黛蓝
+                        'rouge': '#b94047',     // 胭脂
+                    },
+                    fontFamily: {
+                        'serif': ['"Noto Serif SC"', 'serif'],
+                        'calligraphy': ['"Ma Shan Zheng"', 'cursive'],
+                    },
+                    backgroundImage: {
+                        'paper-pattern': "url('https://www.transparenttextures.com/patterns/rice-paper-2.png')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* 全局纹理 - 宣纸质感 */
+        body {
+            background-color: #fdfbf7;
+            /* 叠加一层噪点纹理 */
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+            color: #1a1a1a;
+        }
+
+        /* 隐藏滚动条但保留滚动功能 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdfbf7; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cd4338; 
+            border-radius: 3px;
+        }
+
+        /* 优化后的视差滚动效果 - 增加深度 */
+        .parallax-section {
+            position: relative;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .parallax-bg-img {
+            background-image: linear-gradient(to bottom, rgba(253,251,247,0.3), rgba(253,251,247,0.8)), 
+                              url('https://images.unsplash.com/photo-1518176258769-f227c798150e?q=80&w=2670&auto=format&fit=crop');
+        }
+
+        /* 竖排文字工具类 */
+        .vertical-rl {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            letter-spacing: 0.3em;
+        }
+
+        /* 角色手风琴容器 */
+        .char-accordion {
+            display: flex;
+            width: 100%;
+            height: 85vh; 
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* 角色卡片 */
+        .char-card {
+            flex: 1;
+            position: relative;
+            transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+            overflow: hidden;
+            cursor: pointer;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .char-card:last-child { border-right: none; }
+
+        /* 悬停或激活时的状态 */
+        .char-card:hover, .char-card.active {
+            flex: 3.5; /* 调整展开比例 */
+        }
+
+        /* 角色背景滤镜 */
+        .char-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s, filter 0.8s;
+            filter: grayscale(100%) contrast(1.2) brightness(0.7);
+        }
+        
+        .char-card:hover .char-bg, .char-card.active .char-bg {
+            transform: scale(1.05);
+            filter: grayscale(0%) contrast(1) brightness(0.9);
+        }
+
+        .char-content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            width: 100%;
+            /* 渐变遮罩优化 */
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2.5rem;
+            opacity: 0.7;
+            transition: opacity 0.5s;
+        }
+
+        .char-card:hover .char-content, .char-card.active .char-content {
+            opacity: 1;
+        }
+
+        /* 角色详细信息 */
+        .char-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.6s ease 0.1s;
+            transform: translateY(30px);
+        }
+
+        .char-card:hover .char-details, .char-card.active .char-details {
+            max-height: 600px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 名字样式 */
+        .char-name {
+            font-family: 'Ma Shan Zheng', cursive;
+            transition: all 0.5s;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* 收起时的名字 - 竖排 */
+        .char-card:not(:hover):not(.active) .char-name {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.8rem;
+            color: #fdfbf7;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px 12px;
+            border: 1px solid rgba(255,255,255,0.3);
+            letter-spacing: 0.3em;
+            backdrop-filter: blur(2px);
+        }
+
+        /* 展开时的名字 */
+        .char-card:hover .char-name, .char-card.active .char-name {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: #fdfbf7;
+            text-shadow: 0 0 15px rgba(205, 67, 56, 0.5); /* 光晕效果 */
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .char-accordion {
+                flex-direction: column;
+                height: 130vh;
+            }
+            .char-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .char-card:not(:hover):not(.active) .char-name {
+                writing-mode: horizontal-tb;
+                transform: translate(-50%, -50%);
+                font-size: 2rem;
+                padding: 10px 20px;
+            }
+        }
+
+        /* 画廊优化：多宝阁风格 */
+        .gallery-container {
+            column-count: 3;
+            column-gap: 1.5rem;
+            padding: 1rem;
+        }
+        
+        @media (max-width: 1024px) { .gallery-container { column-count: 2; } }
+        @media (max-width: 640px) { .gallery-container { column-count: 1; } }
+
+        .gallery-frame {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            background: #fff;
+            padding: 10px 10px 30px 10px; /* 拍立得风格下边距 */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 1px solid #e5e5e5;
+        }
+        
+        .gallery-frame:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+
+        .gallery-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.7s;
+        }
+        
+        .gallery-frame:hover .gallery-img {
+            transform: scale(1.03);
+        }
+
+        /* 花瓣动画 */
+        @keyframes fall {
+            0% { opacity: 0; transform: translateY(-10px) rotate(0deg); }
+            20% { opacity: 0.8; }
+            100% { opacity: 0; transform: translateY(100vh) rotate(360deg); }
+        }
+        .petal {
+            position: fixed;
+            top: -10%;
+            background: linear-gradient(to bottom right, #ffb7b2, #ffd1ce);
+            border-radius: 100% 0 100% 0;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        /* 新增：社交媒体图标悬停效果 */
+        .social-icon {
+            transition: all 0.3s;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: #cd4338;
+        }
+    </style>
+</head>
+<body class="antialiased font-serif">
+
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center transition-all duration-300 hover:bg-black/80 hover:backdrop-blur-md group">
+        <div class="text-2xl font-calligraphy text-white drop-shadow-md">风花雪月</div>
+        <div class="space-x-8 text-sm tracking-[0.2em] hidden md:block text-white/90">
+            <a href="#world" class="hover:text-cinnabar transition relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-cinnabar hover:after:w-full after:transition-all">世界观</a>
+            <a href="#characters" class="hover:text-cinnabar transition relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-cinnabar hover:after:w-full after:transition-all">人物</a>
+            <a href="#gallery" class="hover:text-cinnabar transition relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-cinnabar hover:after:w-full after:transition-all">绘卷</a>
+            <a href="#footer-area" class="border border-white/50 px-6 py-2 hover:bg-cinnabar hover:border-cinnabar hover:text-white transition">预约 / 下载</a>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- 背景图 -->
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[20s] scale-110 animate-[pulse_10s_ease-in-out_infinite]" 
+             style="background-image: url('https://images.unsplash.com/photo-1526289034009-0240ddb68ce3?q=80&w=2671&auto=format&fit=crop'); filter: contrast(1.1) brightness(0.7);">
+        </div>
+        
+        <!-- 装饰性边框 -->
+        <div class="absolute inset-4 border border-white/20 pointer-events-none z-20 m-4"></div>
+        <div class="absolute inset-4 border border-white/10 pointer-events-none z-20 m-6"></div>
+
+        <!-- 标题内容 -->
+        <div class="relative z-10 flex flex-col items-center">
+            <div class="writing-vertical text-white/80 text-lg tracking-[1em] absolute -left-24 top-0 hidden md:block h-full border-r border-white/20 pr-4">
+                宿命纠缠 · 神格觉醒
+            </div>
+            
+            <h1 class="text-7xl md:text-[9rem] font-calligraphy mb-6 text-white drop-shadow-2xl animate-[fadeIn_2s_ease-out]">
+                风花雪月
+            </h1>
+            
+            <div class="flex items-center gap-4 text-white/90 mt-4">
+                <span class="h-[1px] w-12 bg-white/50"></span>
+                <p class="text-lg font-light italic tracking-widest">乙女恋爱 · 古风架空</p>
+                <span class="h-[1px] w-12 bg-white/50"></span>
+            </div>
+
+            <div class="mt-12">
+                 <a href="#footer-area" class="px-10 py-3 border border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition duration-500 tracking-[0.3em] text-lg bg-black/30 backdrop-blur-sm">
+                    进入大胤
+                </a>
+            </div>
+        </div>
+
+        <!-- 右下角印章 -->
+        <div class="absolute bottom-20 right-10 md:right-24 rotate-12 opacity-90 animate-[bounce_3s_infinite]">
+            <div class="w-24 h-24 border-4 border-cinnabar rounded-lg flex items-center justify-center bg-white/10 backdrop-blur-sm">
+                <div class="text-cinnabar font-calligraphy text-3xl writing-vertical leading-none">
+                    只待<br>君来
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. 世界观 (重构排版) -->
+    <section id="world" class="parallax-section parallax-bg-img relative">
+        <div class="absolute inset-0 bg-white/60 backdrop-blur-[1px]"></div>
+        
+        <!-- 装饰性水墨元素 -->
+        <div class="absolute top-10 left-0 w-64 h-64 opacity-20 bg-contain bg-no-repeat rotate-180" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f7/Ink_Bamboo.jpg'); mix-blend-mode: multiply;"></div>
+
+        <div class="container mx-auto px-6 relative z-10 py-20">
+            <div class="flex flex-col md:flex-row items-stretch justify-center gap-10 md:gap-0">
+                
+                <!-- 左侧：标题与竖排文字 -->
+                <div class="md:w-1/3 flex justify-center md:justify-end md:pr-12 relative">
+                    <div class="h-full border-r-2 border-cinnabar absolute right-0 top-0 hidden md:block opacity-30"></div>
+                    <div class="vertical-rl h-96 text-right md:mr-8">
+                        <h2 class="text-5xl md:text-6xl font-calligraphy text-ink-black mb-8">天地一念 · 神隐红尘</h2>
+                        <p class="text-lg text-gray-600 leading-loose">五千年岁月流转，神格散落人间</p>
+                    </div>
+                </div>
+
+                <!-- 右侧：内容框 -->
+                <div class="md:w-1/2 bg-paper-white/90 p-8 md:p-12 shadow-2xl relative mt-10 md:mt-20">
+                    <!-- 装饰角标 -->
+                    <div class="absolute -top-2 -left-2 w-8 h-8 border-t-4 border-l-4 border-cinnabar"></div>
+                    <div class="absolute -bottom-2 -right-2 w-8 h-8 border-b-4 border-r-4 border-cinnabar"></div>
+                    
+                    <p class="text-gray-800 text-lg leading-loose mb-6 text-justify">
+                        大胤王朝，表面繁花似锦，实则暗流涌动。
+                        你本是<span class="text-cinnabar font-bold">镇国将军</span>最受宠的小女儿，却因一场意外卷入朝堂与神界的双重漩涡。
+                        贵妃之死的真相、花楼名伶的身世、敌国质子的秘密……一切皆在迷雾之中。
+                    </p>
+                    <p class="text-gray-800 text-lg leading-loose text-justify">
+                        当<span class="font-bold text-moon-blue">神格觉醒</span>之时，你是选择重返九重天，去做那高高在上的神明，
+                        还是留恋这红尘万丈，与命定之人共度春秋？
+                    </p>
+                    
+                    <div class="mt-8 flex justify-end gap-3">
+                        <span class="px-3 py-1 border border-gray-400 text-xs text-gray-500 tracking-widest">架空王朝</span>
+                        <span class="px-3 py-1 border border-gray-400 text-xs text-gray-500 tracking-widest">权谋</span>
+                        <span class="px-3 py-1 border border-cinnabar text-cinnabar text-xs tracking-widest font-bold">乙女</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 角色介绍 (顺序调整：东方映泉 -> 慕元靖 -> 钟离耀 -> 云夜霜 -> 东方熠晨) -->
+    <section id="characters" class="bg-ink-black relative py-4">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cinnabar to-transparent opacity-50"></div>
+        <div class="text-center py-8">
+            <h2 class="text-4xl font-calligraphy text-paper-white inline-block border-b border-gray-700 pb-2">命定之人</h2>
+        </div>
+
+        <div class="char-accordion">
+            <!-- 1. 东方映泉 (鸣川) -->
+            <div class="char-card group" onclick="expandCard(this)">
+                <div class="char-bg" style="background-image: url('https://images.unsplash.com/photo-1549887552-93f8efb4133f?q=80&w=2670&auto=format&fit=crop');"></div>
+                <h3 class="char-name">东方映泉</h3>
+                <div class="char-content">
+                    <div class="char-details">
+                        <span class="text-cinnabar text-sm font-bold tracking-widest mb-2 block uppercase">Hidden Prince</span>
+                        <h4 class="text-3xl font-bold text-white mb-2">艺名：鸣川</h4>
+                        <div class="border-l-4 border-cinnabar pl-4 my-4 italic text-gray-300 text-lg font-serif">
+                            “世人皆醒我独醉，<br>花间一壶洗尘灰。”
+                        </div>
+                        <p class="text-sm text-gray-200 leading-relaxed mb-4">
+                            流落民间的皇长子，现为名动京城的花楼花魁。在烟花之地冷眼看朝堂风云。<br>
+                            <span class="text-xs text-white/50 mt-1 block">TAG: 魅惑 / 身世之谜 / 真相线</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. 慕元靖 (顺序调整至此) -->
+            <div class="char-card group" onclick="expandCard(this)">
+                <div class="char-bg" style="background-image: url('https://images.unsplash.com/photo-1526495124232-a04e1849168c?q=80&w=2574&auto=format&fit=crop');"></div>
+                <h3 class="char-name">慕元靖</h3>
+                <div class="char-content">
+                    <div class="char-details">
+                        <span class="text-jade text-sm font-bold tracking-widest mb-2 block uppercase">Left Minister</span>
+                        <h4 class="text-3xl font-bold text-white mb-2">当朝左相</h4>
+                        <div class="border-l-4 border-jade pl-4 my-4 italic text-gray-300 text-lg font-serif">
+                            “满园春色藏不住，<br>笑里藏刀花无数。”
+                        </div>
+                        <p class="text-sm text-gray-200 leading-relaxed mb-4">
+                            你的“舅舅”，年长九岁的权臣。外表如沐春风，实则心机深沉。<br>
+                            神格<span class="text-jade font-bold">“花”</span>已觉醒，掌管生死枯荣。<br>
+                            <span class="text-xs text-white/50 mt-1 block">TAG: 白切黑 / 年上 / 禁忌</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 钟离耀 (顺序调整至此) -->
+            <div class="char-card group" onclick="expandCard(this)">
+                <div class="char-bg" style="background-image: url('https://images.unsplash.com/photo-1483664852095-d6cc6870705d?q=80&w=2670&auto=format&fit=crop');"></div>
+                <h3 class="char-name">钟离耀</h3>
+                <div class="char-content">
+                    <div class="char-details">
+                        <span class="text-blue-300 text-sm font-bold tracking-widest mb-2 block uppercase">Hostage Prince</span>
+                        <h4 class="text-3xl font-bold text-white mb-2">敌国质子</h4>
+                        <div class="border-l-4 border-blue-300 pl-4 my-4 italic text-gray-300 text-lg font-serif">
+                            “大雪压青松，<br>且听龙吟啸。”
+                        </div>
+                        <p class="text-sm text-gray-200 leading-relaxed mb-4">
+                            七岁入大胤为质，性格放荡不羁。神格<span class="text-blue-300 font-bold">“雪”</span>已觉醒，百毒不侵，其血可解万毒。<br>
+                            <span class="text-xs text-white/50 mt-1 block">TAG: 疯批 / 美强惨 / 盟友</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. 云夜霜 (顺序调整至此) -->
+            <div class="char-card group" onclick="expandCard(this)">
+                <div class="char-bg" style="background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2694&auto=format&fit=crop');"></div>
+                <h3 class="char-name">云夜霜</h3>
+                <div class="char-content">
+                    <div class="char-details">
+                        <span class="text-purple-300 text-sm font-bold tracking-widest mb-2 block uppercase">Grand Preceptor</span>
+                        <h4 class="text-3xl font-bold text-white mb-2">国师 · 谪仙</h4>
+                        <div class="border-l-4 border-purple-300 pl-4 my-4 italic text-gray-300 text-lg font-serif">
+                            “海上生明月，<br>天涯共此时。”
+                        </div>
+                        <p class="text-sm text-gray-200 leading-relaxed mb-4">
+                            猫仙遗孤，守护这片土地等待你归来的祭司。神格<span class="text-purple-300 font-bold">“月”</span>已觉醒，清冷出尘。<br>
+                            <span class="text-xs text-white/50 mt-1 block">TAG: 守护者 / 非人 / 清冷</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. 东方熠晨 (顺序调整至此) -->
+            <div class="char-card group" onclick="expandCard(this)">
+                <div class="char-bg" style="background-image: url('https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?q=80&w=2669&auto=format&fit=crop');"></div>
+                <h3 class="char-name">东方熠晨</h3>
+                <div class="char-content">
+                    <div class="char-details">
+                        <span class="text-gold text-sm font-bold tracking-widest mb-2 block uppercase">2nd Prince</span>
+                        <h4 class="text-3xl font-bold text-white mb-2">二皇子</h4>
+                        <div class="border-l-4 border-gold pl-4 my-4 italic text-gray-300 text-lg font-serif">
+                            “九万里风鹏正举，<br>玉殿金阶少年游。”
+                        </div>
+                        <p class="text-sm text-gray-200 leading-relaxed mb-4">
+                            中宫嫡出，天之骄子。操纵“风”的力量。性格张扬，背负家族重担。<br>
+                            <span class="text-xs text-white/50 mt-1 block">TAG: 少年意气 / 欢喜冤家 / 权谋</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 浮生绘卷 (重构：多宝阁/拍立得风格) -->
+    <section id="gallery" class="py-24 bg-paper-white relative">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <!-- 标题区 -->
+            <div class="flex flex-col items-center mb-16">
+                <div class="w-16 h-1 bg-ink-black mb-4"></div>
+                <h2 class="text-5xl font-calligraphy text-ink-black mb-2">浮生绘卷</h2>
+                <p class="text-gray-500 tracking-[0.3em] uppercase text-sm">Gallery of Memories</p>
+            </div>
+
+            <div class="gallery-container">
+                <!-- CG 1 -->
+                <div class="gallery-frame">
+                    <div class="gallery-img-wrapper h-64 bg-gray-200">
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-300 font-calligraphy text-xl">花楼初遇</div>
+                        <img src="" onerror="this.style.display='none'" class="gallery-img" alt="CG">
+                    </div>
+                    <div class="mt-4 flex justify-between items-center px-2">
+                        <span class="font-serif font-bold text-gray-800">鸣川 · 初见</span>
+                        <span class="text-xs text-gray-400 font-mono">NO.01</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2 px-2 leading-relaxed">“这位姑娘，可是迷路了？”</p>
+                </div>
+
+                <!-- CG 2 -->
+                <div class="gallery-frame">
+                    <div class="gallery-img-wrapper h-96 bg-gray-300">
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-300 font-calligraphy text-xl">雪夜对酌</div>
+                        <img src="" onerror="this.style.display='none'" class="gallery-img" alt="CG">
+                    </div>
+                    <div class="mt-4 flex justify-between items-center px-2">
+                        <span class="font-serif font-bold text-gray-800">钟离耀 · 独酌</span>
+                        <span class="text-xs text-gray-400 font-mono">NO.02</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2 px-2 leading-relaxed">红泥小火炉，能饮一杯无？</p>
+                </div>
+
+                <!-- CG 3 -->
+                <div class="gallery-frame">
+                    <div class="gallery-img-wrapper h-56 bg-gray-200">
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-300 font-calligraphy text-xl">御花园</div>
+                        <img src="" onerror="this.style.display='none'" class="gallery-img" alt="CG">
+                    </div>
+                    <div class="mt-4 flex justify-between items-center px-2">
+                        <span class="font-serif font-bold text-gray-800">慕元靖 · 赏花</span>
+                        <span class="text-xs text-gray-400 font-mono">NO.03</span>
+                    </div>
+                </div>
+
+                <!-- CG 4 -->
+                <div class="gallery-frame">
+                    <div class="gallery-img-wrapper h-72 bg-gray-300">
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-300 font-calligraphy text-xl">祭祀大典</div>
+                        <img src="" onerror="this.style.display='none'" class="gallery-img" alt="CG">
+                    </div>
+                    <div class="mt-4 flex justify-between items-center px-2">
+                        <span class="font-serif font-bold text-gray-800">云夜霜 · 祈天</span>
+                        <span class="text-xs text-gray-400 font-mono">NO.04</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2 px-2 leading-relaxed">月光洒在祭坛之上，他如神祗降临。</p>
+                </div>
+
+                <!-- CG 5 -->
+                <div class="gallery-frame">
+                    <div class="gallery-img-wrapper h-64 bg-gray-200">
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-300 font-calligraphy text-xl">策马同游</div>
+                        <img src="" onerror="this.style.display='none'" class="gallery-img" alt="CG">
+                    </div>
+                    <div class="mt-4 flex justify-between items-center px-2">
+                        <span class="font-serif font-bold text-gray-800">东方熠晨 · 狩猎</span>
+                        <span class="text-xs text-gray-400 font-mono">NO.05</span>
+                    </div>
+                </div>
+                
+                 <!-- CG 6 -->
+                 <div class="gallery-frame">
+                    <div class="gallery-img-wrapper h-48 bg-gray-100">
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-300 font-calligraphy text-xl">灯会</div>
+                        <img src="" onerror="this.style.display='none'" class="gallery-img" alt="CG">
+                    </div>
+                    <div class="mt-4 flex justify-between items-center px-2">
+                        <span class="font-serif font-bold text-gray-800">全员 · 上元节</span>
+                        <span class="text-xs text-gray-400 font-mono">NO.06</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="px-8 py-2 border border-ink-black hover:bg-ink-black hover:text-white transition duration-300 font-serif text-sm tracking-widest">
+                    查看更多图鉴
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 底部与预约 (增加下载与社媒) -->
+    <footer id="footer-area" class="bg-ink-black text-white py-20 border-t-8 border-cinnabar relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" 
+             style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-6xl font-calligraphy mb-4">即刻入局</h2>
+            <p class="text-gray-400 mb-10 tracking-widest">目前已有 <span class="text-cinnabar font-bold text-2xl mx-1">1,024,567</span> 位将军之女重返大胤</p>
+            
+            <!-- 预约与下载按钮组 -->
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-16">
+                <!-- 预约输入框 -->
+                <div class="flex w-full max-w-md">
+                    <input type="email" placeholder="输入邮箱获取飞鸽传书" class="flex-1 px-6 py-4 bg-white/5 border border-white/20 focus:border-cinnabar focus:outline-none text-white placeholder-gray-500">
+                    <button class="bg-cinnabar hover:bg-red-700 text-white px-8 py-4 font-bold tracking-widest transition whitespace-nowrap">
+                        立即预约
+                    </button>
+                </div>
+                
+                <!-- 分隔线 -->
+                <div class="hidden md:block w-px h-12 bg-gray-700"></div>
+
+                <!-- 下载按钮 -->
+                <button class="group relative px-8 py-4 border border-white/30 hover:border-white transition flex items-center gap-3 bg-white/5 overflow-hidden">
+                    <div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition duration-300"></div>
+                    <i class="fas fa-download relative z-10"></i>
+                    <span class="tracking-widest relative z-10">游戏下载</span>
+                    <span class="text-xs bg-gray-700 px-1 rounded text-gray-300 relative z-10">Beta</span>
+                </button>
+            </div>
+
+            <!-- 社交媒体链接 -->
+            <div class="mb-12">
+                <p class="text-sm text-gray-500 mb-6 tracking-[0.2em] uppercase">关注官方社媒获取最新资讯</p>
+                <div class="flex justify-center gap-8 text-3xl text-gray-400">
+                    <!-- 微博 -->
+                    <a href="#" class="social-icon" title="官方微博">
+                        <i class="fab fa-weibo"></i>
+                    </a>
+                    <!-- B站 (使用 play-circle 代替或 fa-bilibili 如果 fontawesome 版本支持) -->
+                    <a href="#" class="social-icon" title="Bilibili">
+                        <i class="fab fa-bilibili"></i>
+                    </a>
+                    <!-- 抖音/Tiktok -->
+                    <a href="#" class="social-icon" title="抖音">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <!-- 小红书 (无官方图标，使用 Book 代替) -->
+                    <a href="#" class="social-icon relative group" title="小红书">
+                        <i class="fas fa-book"></i>
+                        <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-xs text-gray-600 space-y-2 font-mono">
+                <p>&copy; 2023 风花雪月制作委员会 Wind Flower Snow Moon Project. All Rights Reserved.</p>
+                <p>抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。</p>
+                <p>适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS 逻辑 -->
+    <script>
+        // 花瓣飘落效果生成器
+        function createPetals() {
+            const petalCount = 15;
+            const container = document.body;
+            
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.width = (Math.random() * 8 + 4) + 'px';
+                petal.style.height = (Math.random() * 8 + 4) + 'px'; // 近似圆形/不规则
+                petal.style.animationDuration = (Math.random() * 8 + 8) + 's'; // 更慢
+                petal.style.animationDelay = Math.random() * 5 + 's';
+                petal.style.opacity = Math.random() * 0.5 + 0.3;
+                // 随机花瓣动画
+                petal.style.animation = `fall ${Math.random() * 10 + 10}s linear infinite`;
+                container.appendChild(petal);
+            }
+        }
+
+        // 移动端/点击时的手风琴切换逻辑
+        function expandCard(element) {
+            const allCards = document.querySelectorAll('.char-card');
+            
+            if (element.classList.contains('active')) {
+                // 可选：再次点击关闭，或者保持开启
+                return; 
+            }
+
+            allCards.forEach(card => card.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // 初始化
+        window.onload = function() {
+            createPetals();
+            
+            // 桌面端默认不激活，让hover生效；
+        };
+    </script>
+</body>
+</html>
+
+
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/think_pic/2025-06-27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">言如泉</div><div class="author-info-description">什么都写点，各位见笑了。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/YAN-CodeSpring"><i class="fab fa-github"></i><span>在GitHub上关注我！</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/YAN-CodeSpring" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:yan.codespring@gmail.com" target="_blank" title="Email"><i class="far fa-envelope" style="color: #24292e;"></i></a><a class="social-icon" href="https://space.bilibili.com/1324439158?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.zhihu.com/people/10-44-3-50-19" target="_blank" title="知乎"><i class="fab fa-zhihu" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E8%AF%BB%E7%82%B9%E4%B9%A6-2025-09-09-wakeup.html" title="《认知觉醒》读书睡前小记"><img src="/images/cover/cover_4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《认知觉醒》读书睡前小记"/></a><div class="content"><a class="title" href="/%E8%AF%BB%E7%82%B9%E4%B9%A6-2025-09-09-wakeup.html" title="《认知觉醒》读书睡前小记">《认知觉醒》读书睡前小记</a><time datetime="2025-09-09T06:33:31.000Z" title="发表于 2025-09-09 14:33:31">2025-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-09-09-forgive.html" title="论原谅"><img src="/images/cover/cover_8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论原谅"/></a><div class="content"><a class="title" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-09-09-forgive.html" title="论原谅">论原谅</a><time datetime="2025-09-09T05:37:23.000Z" title="发表于 2025-09-09 13:37:23">2025-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-linux-wsl.html" title="比双系统方便的Linux——wsl！"><img src="/images/cover/cover_6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="比双系统方便的Linux——wsl！"/></a><div class="content"><a class="title" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-linux-wsl.html" title="比双系统方便的Linux——wsl！">比双系统方便的Linux——wsl！</a><time datetime="2025-08-27T12:24:52.000Z" title="发表于 2025-08-27 20:24:52">2025-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-learnsource.html" title="学习资料网站（欢迎收藏）"><img src="/images/cover/cover_3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="学习资料网站（欢迎收藏）"/></a><div class="content"><a class="title" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-learnsource.html" title="学习资料网站（欢迎收藏）">学习资料网站（欢迎收藏）</a><time datetime="2025-08-27T12:20:14.000Z" title="发表于 2025-08-27 20:20:14">2025-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-knn.html" title="KNN手写数字识别"><img src="/images/cover/cover_1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="KNN手写数字识别"/></a><div class="content"><a class="title" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-knn.html" title="KNN手写数字识别">KNN手写数字识别</a><time datetime="2025-08-27T12:17:33.000Z" title="发表于 2025-08-27 20:17:33">2025-08-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Learn/"><span class="card-category-list-name">Learn</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Read/"><span class="card-category-list-name">Read</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Think/"><span class="card-category-list-name">Think</span><span class="card-category-list-count">3</span></a></li>
+          </ul></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              九月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">6</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">13</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2025-06-27T15:46:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">22.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-12-29T17:16:11.608Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: Grey;"><div id="footer-wrap"><div class="copyright">&copy;2025 By 言如泉</div><div class="footer_custom_text">Welcome To Contact Me.</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
