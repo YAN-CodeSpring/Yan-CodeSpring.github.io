@@ -33,7 +33,7 @@ body {
     box-sizing: border-box;
 }
 
-/* --- 加载遮罩 --- */
+/* --- 加载遮罩（兜底样式：确保能被隐藏） --- */
 #loader {
     position: fixed;
     inset: 0;
@@ -42,6 +42,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    transition: opacity 0.6s ease-out; /* 显式过渡，避免闪烁异常 */
 }
 .heart-loader {
     width: 60px;
@@ -128,14 +129,14 @@ body {
 }
 @keyframes blink { 50% { opacity: 0; } }
 
-/* --- 主内容包裹层 --- */
+/* --- 主内容包裹层（确保层级高于Hero，不被遮挡） --- */
 .main-wrapper {
     position: relative;
     background-color: var(--bg-cream);
     margin-top: 100vh;
     padding-top: 6rem;
     padding-bottom: 6rem;
-    z-index: 10;
+    z-index: 10; /* 兜底层级，确保显示在最上层（除粒子和加载遮罩） */
     box-shadow: 0 -20px 50px rgba(255, 210, 220, 0.2);
     border-radius: 50px 50px 0 0;
 }
@@ -242,22 +243,21 @@ body {
     font-size: 1rem;
 }
 
-/* --- 相册 (彻底强制图片显示) --- */
+/* --- 相册 (彻底强制图片显示 + 充足间距) --- */
 .gallery-container {
-    display: grid; /* 改用grid布局，比flex更稳定 */
+    display: grid; /* grid布局更稳定，避免flex渲染异常 */
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 40px; /* 行列间距统一 */
+    gap: 40px; /* 行列充足间距，文字完整显示 */
     width: 100%;
     padding: 20px 0;
 }
-/* 强制相册元素不被任何动画隐藏 */
+/* 强制相册元素显示，无隐藏风险 */
 .gallery-item {
     background: white;
     padding: 18px;
     border-radius: 18px;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease;
-    /* 最高优先级强制显示 */
     opacity: 1 !important;
     visibility: visible !important;
     transform: translateY(0) !important;
@@ -266,16 +266,15 @@ body {
 .gallery-item:hover {
     transform: translateY(-5px);
 }
-/* 图片强制显示样式 */
+/* 图片强制显示，兜底背景 */
 .gallery-item img {
     width: 100%;
     height: 260px;
     display: block !important;
     border-radius: 12px;
     object-fit: cover;
-    background: var(--main-pink); /* 加载时的粉色占位 */
+    background: var(--main-pink); /* 图片加载前占位 */
     margin-bottom: 1.2rem;
-    /* 防止被JS动态样式覆盖 */
     opacity: 1 !important;
     visibility: visible !important;
 }

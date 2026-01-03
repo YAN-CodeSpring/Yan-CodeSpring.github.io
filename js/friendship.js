@@ -1,15 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* --- 1. 加载处理 --- */
+    /* --- 1. 加载处理（确保遮罩能正常隐藏） --- */
     window.addEventListener('load', () => {
         const loader = document.getElementById('loader');
         // 延迟一点点，确保布局计算完成
         setTimeout(() => {
-            loader.style.opacity = '0';
-            setTimeout(() => {
-                loader.style.display = 'none';
-                startTypewriter();
-            }, 600);
+            if (loader) {
+                loader.style.opacity = '0';
+                loader.style.transition = 'opacity 0.6s ease-out'; // 显式添加过渡
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    startTypewriter();
+                }, 600);
+            }
         }, 800);
     });
 
@@ -31,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
         type();
     }
 
-    /* --- 3. 滚动显现动画 (彻底排除相册元素) --- */
+    /* --- 3. 滚动显现动画 (彻底排除相册元素 + 修复语法错误) --- */
+    // 修正：之前的括号位置错误，导致JS报错中断
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -39,12 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.style.transform = 'translateY(0)';
                 observer.unobserve(entry.target);
             }
-        }), {
-            threshold: 0.05,
-            rootMargin: '0px 0px -50px 0px'
         });
+    }, {
+        threshold: 0.05,
+        rootMargin: '0px 0px -50px 0px'
+    });
 
-    // 重点：选择器里**绝对不能包含.gallery-item**，只观测其他元素
+    // 重点：只观测非相册元素，避免影响图片显示
     const animatedElements = document.querySelectorAll('.timeline-item, .section-header, .letter-paper');
 
     animatedElements.forEach(el => {
@@ -54,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    /* --- 4. 时间戳：改为静止（仅加载时显示） --- */
+    /* --- 4. 静止时间戳 --- */
     function formatCurrentTime() {
         const now = new Date();
         const year = now.getFullYear();
@@ -67,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const timeElement = document.getElementById('live-timestamp');
     if (timeElement) {
-        // 仅初始化时设置一次，不再实时更新
         timeElement.innerText = formatCurrentTime();
     }
 
@@ -83,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const startLeft = Math.random() * 100;
         const duration = Math.random() * 5 + 5;
-        const size = Math.random() * 20 + 20; // 放大粒子
+        const size = Math.random() * 20 + 20;
 
         particle.style.left = startLeft + 'vw';
         particle.style.fontSize = size + 'px';
@@ -94,13 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     setInterval(createParticle, 600);
 
-    /* --- 6. 优化视差效果：滚动时Hero内容轻微偏移 --- */
+    /* --- 6. 视差联动 --- */
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
         const heroContent = document.querySelector('.hero-content');
         if (heroContent) {
-            // 轻微偏移，增强视差视觉感
-            heroContent.style.transform = `translateY(-50px + ${scrollY * 0.1}px)`;
+            heroContent.style.transform = `translateY(calc(-50px + ${scrollY * 0.1}px))`;
         }
     });
 });
