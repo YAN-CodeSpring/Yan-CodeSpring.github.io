@@ -1,0 +1,1143 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>宝宝谢谢你来到这个世界和出现在我的生命里！ | Code Spring</title><meta name="author" content="言如泉"><meta name="copyright" content="言如泉"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="&#x2F;* &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 核心：屏蔽 Butterfly 主题 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; *&#x2F;     #page, #content-inner, .layout {         background: transparent !important;         border: none !important;         padding: 0 !importan">
+<meta property="og:type" content="website">
+<meta property="og:title" content="宝宝谢谢你来到这个世界和出现在我的生命里！">
+<meta property="og:url" content="http://example.com/private/peijiu-happy-birthday/index.html">
+<meta property="og:site_name" content="Code Spring">
+<meta property="og:description" content="&#x2F;* &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 核心：屏蔽 Butterfly 主题 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; *&#x2F;     #page, #content-inner, .layout {         background: transparent !important;         border: none !important;         padding: 0 !importan">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/think_pic/2025-06-27.jpg">
+<meta property="article:published_time" content="2026-07-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-07-16T15:46:10.670Z">
+<meta property="article:author" content="言如泉">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/think_pic/2025-06-27.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/private/peijiu-happy-birthday/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '宝宝谢谢你来到这个世界和出现在我的生命里！',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/think_pic/2025-06-27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw far fa-folder-open"></i><span> File</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Learn/"><i class="fa-fw fas fa-graduation-cap"></i><span> To Learn</span></a></li><li><a class="site-page child" href="/categories/Read/"><i class="fa-fw fas fa-book"></i><span> To Read</span></a></li><li><a class="site-page child" href="/categories/Listen/"><i class="fa-fw fas fa-music"></i><span> To Listen</span></a></li><li><a class="site-page child" href="/categories/Think/"><i class="fa-fw fas fa-icons"></i><span> To Think</span></a></li><li><a class="site-page child" href="/categories/Play/"><i class="fa-fw fas fa-gamepad"></i><span> To Play</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Time</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(/images/top_pic/top_default.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Code Spring</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw far fa-folder-open"></i><span> File</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Learn/"><i class="fa-fw fas fa-graduation-cap"></i><span> To Learn</span></a></li><li><a class="site-page child" href="/categories/Read/"><i class="fa-fw fas fa-book"></i><span> To Read</span></a></li><li><a class="site-page child" href="/categories/Listen/"><i class="fa-fw fas fa-music"></i><span> To Listen</span></a></li><li><a class="site-page child" href="/categories/Think/"><i class="fa-fw fas fa-icons"></i><span> To Think</span></a></li><li><a class="site-page child" href="/categories/Play/"><i class="fa-fw fas fa-gamepad"></i><span> To Play</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Time</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">宝宝谢谢你来到这个世界和出现在我的生命里！</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    /* ========== 核心：屏蔽 Butterfly 主题 ========== */
+    #page, #content-inner, .layout {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+    }
+
+    #page-header, #nav, #sidebar, #footer, .post-copyright, .post-meta,
+    .post-tags, .breadcrumbs, .aside-content, .sticky_layout, #rightside,
+    .post-title, .layout > .aside, .content-wrap > .aside, .sidebar-dock,
+    .toc-container, .post-info, .post-content, .category-lists, .tag-cloud,
+    .pagination, .archive-year, .archive-month, .post-widget, .related-posts,
+    .comment-wrap, .gitalk-container, #web_bg {
+        display: none !important;
+        pointer-events: none !important;
+    }
+
+    html, body {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden;
+        font-family: 'Noto Serif SC', serif !important;
+    }
+
+    #body-wrap, #content-inner, .layout, #page, .recent-posts, #article-container {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: 100vh !important;
+    }
+
+    /* 页面淡入 */
+    body {
+        opacity: 0;
+        animation: pageFadeIn 1.5s ease-in-out forwards;
+    }
+
+    @keyframes pageFadeIn {
+        to { opacity: 1; }
+    }
+
+    /* 双层背景 */
+    #bg-layer-bottom {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+        filter: blur(8px);
+        transition: opacity 1s ease-in-out;
+        transform: scale(1.03);
+    }
+
+    #bg-layer-top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 2;
+        filter: blur(2px);
+        opacity: 0.9;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .love-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(2px);
+        z-index: 3;
+    }
+
+    /* 正计时卡片 */
+    .love-container {
+        position: fixed;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        text-align: center;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        padding: 30px 42px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        min-width: 480px;
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(20px);
+        animation: cardFadeIn 1s ease-in-out 0.5s forwards;
+    }
+
+    @keyframes cardFadeIn {
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%) translateY(0);
+        }
+    }
+
+    .sub-title {
+        font-family: 'Noto Serif SC', serif;
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+        opacity: 0.82;
+        margin-bottom: 8px;
+    }
+
+    .main-title {
+        font-family: 'Noto Serif SC', serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+        line-height: 1.35;
+        transition: all 0.5s ease;
+    }
+
+    #timer {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 15px;
+        margin: 25px 0;
+        white-space: nowrap;
+    }
+
+    .time-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 68px;
+    }
+
+    .time-num {
+        font-family: 'Playfair Display', serif;
+        font-size: 4rem;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    .time-label {
+        font-size: 1.5rem;
+        margin-top: 5px;
+        font-family: 'Noto Serif SC', serif;
+    }
+
+    /* 心跳动画 */
+    .heart-beat {
+        margin-top: 20px;
+        font-size: 2rem;
+        color: #ffb7b2;
+        animation: heartbeat 1.5s infinite;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        25% { transform: scale(1.1); }
+        40% { transform: scale(1); }
+        60% { transform: scale(1.15); }
+        100% { transform: scale(1); }
+    }
+
+    .heart-beat:active {
+        transform: scale(1.3);
+        color: #ff6b6b;
+    }
+
+    /* 恢复为最初版本的提示语字号和字体 */
+    .warm-tip {
+        font-family: 'Dancing Script', cursive !important;
+        font-size: 1.2rem !important;
+        color: #ffd6d6;
+        margin-top: 15px;
+        opacity: 0.92;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    /* 日记显示区域 */
+    .diary-container {
+        position: fixed;
+        top: 68%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        width: 80%;
+        max-width: 700px;
+        height: 28vh;
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        text-align: left;
+        color: rgba(255, 255, 255, 0.95);
+        font-family: 'Noto Serif SC', serif !important;
+        font-size: 1.1rem !important;
+        line-height: 1.8;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        opacity: 0;
+        animation: diaryFadeIn 1s ease-in-out 1s forwards;
+    }
+
+    /* 避免 Butterfly 的内部样式覆盖信件字号 */
+    .diary-container #typed-text,
+    .diary-container #typed-text span {
+        font-family: 'Noto Serif SC', serif !important;
+        font-size: inherit !important;
+    }
+
+    @keyframes diaryFadeIn {
+        to { opacity: 1; }
+    }
+
+    .diary-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .diary-date {
+        font-weight: bold;
+        color: #ffc2c2;
+        margin-top: 15px;
+        display: block;
+        font-size: 1.2rem !important;
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1.2rem;
+        background-color: #fff;
+        animation: blink 1s infinite;
+        vertical-align: middle;
+    }
+
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+
+    /* 飘落爱心 */
+    .falling-heart {
+        position: fixed;
+        top: -10%;
+        z-index: 5;
+        color: #ffb7b2;
+        pointer-events: none;
+        user-select: none;
+        animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0.8;
+        }
+        100% {
+            transform: translateY(110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    /* 音乐播放按钮 */
+    .music-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffb7b2;
+        font-size: 24px;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .music-btn:hover {
+        transform: scale(1.1);
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .music-btn:active {
+        transform: scale(0.95);
+    }
+
+    .music-icon.play::before { content: '▶️'; }
+    .music-icon.pause::before { content: '⏸️'; }
+
+    /* 音乐状态提示：加载失败时也会明确显示 */
+    .music-status {
+        position: fixed;
+        right: 24px;
+        bottom: 105px;
+        z-index: 100;
+        max-width: 320px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: rgba(0, 0, 0, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        font-family: 'Noto Serif SC', serif;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        text-align: left;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(8px);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(8px);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+        pointer-events: none;
+    }
+
+    .music-status.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .music-status.error {
+        color: #ffd4d4;
+        border-color: rgba(255, 150, 150, 0.45);
+    }
+
+    /* 手机端适配 */
+    @media (max-width: 768px) {
+        .love-container {
+            top: 25%;
+            padding: 20px 8px;
+            width: 92%;
+            min-width: auto;
+        }
+
+        .sub-title {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+        }
+
+        .main-title {
+            font-size: 1.9rem;
+            margin-bottom: 15px;
+        }
+
+        .time-num {
+            font-size: clamp(1.45rem, 7vw, 2rem);
+        }
+
+        .time-box {
+            min-width: 0;
+            flex: 1 1 0;
+        }
+
+        .time-label {
+            font-size: 0.72rem;
+        }
+
+        #timer {
+            width: 100%;
+            gap: 4px;
+            margin: 15px 0;
+        }
+
+        .heart-beat {
+            font-size: 3.5rem;
+            margin-top: 10px;
+        }
+
+        .diary-container {
+            top: 52%;
+            height: 45vh;
+            width: 90%;
+            font-size: 2.5rem !important;
+            padding: 15px;
+        }
+
+        .diary-date {
+            font-size: 1.1rem !important;
+            margin-top: 10px;
+        }
+
+        .music-btn {
+            width: 50px;
+            height: 50px;
+            bottom: 20px;
+            right: 20px;
+            font-size: 20px;
+        }
+
+        .music-status {
+            right: 15px;
+            bottom: 80px;
+            max-width: min(300px, 78vw);
+            font-size: 0.82rem;
+        }
+
+        .warm-tip {
+            font-size: 10rem !important;
+        }
+
+        #bg-layer-bottom {
+            filter: blur(6px);
+        }
+
+        #bg-layer-top {
+            filter: blur(1px);
+        }
+    }
+</style>
+
+<div id="bg-layer-bottom"></div>
+<div id="bg-layer-top"></div>
+<div class="love-overlay"></div>
+<div id="hearts-container"></div>
+
+<!-- 正计时卡片 -->
+<div class="love-container">
+    <div class="sub-title">YOU HAVE BEEN SHINING FOR</div>
+    <div class="main-title" id="main-title-text">来到这个世界已经</div>
+
+    <div id="timer">
+        <div class="time-box">
+            <span class="time-num" id="years">0</span>
+            <span class="time-label">Years</span>
+        </div>
+        <div class="time-box">
+            <span class="time-num" id="days">0</span>
+            <span class="time-label">Days</span>
+        </div>
+        <div class="time-box">
+            <span class="time-num" id="hours">00</span>
+            <span class="time-label">Hours</span>
+        </div>
+        <div class="time-box">
+            <span class="time-num" id="minutes">00</span>
+            <span class="time-label">Min</span>
+        </div>
+        <div class="time-box">
+            <span class="time-num" id="seconds">00</span>
+            <span class="time-label">Sec</span>
+        </div>
+    </div>
+
+    <div class="heart-beat" id="interactive-heart" aria-label="播放音乐并生成爱心">❤</div>
+    <div class="warm-tip" id="warm-tip"></div>
+</div>
+
+<!-- 日记区域 -->
+<div class="diary-container">
+    <div id="typed-text"></div><span class="cursor"></span>
+</div>
+
+<!-- 音乐播放控件
+     中文文件名已经写成 URL 编码，实际文件仍然叫“纵此生.mp3”。
+     文件应位于：source/images/private_pic/纵此生.mp3
+-->
+<audio
+    id="background-music"
+    loop
+    preload="auto"
+    playsinline
+    src="/images/private_pic/%E7%BA%B5%E6%AD%A4%E7%94%9F.mp3">
+    你的浏览器不支持音频播放
+</audio>
+
+<div class="music-btn" id="music-btn" role="button" tabindex="0" aria-label="播放或暂停音乐">
+    <span class="music-icon play" id="music-icon"></span>
+</div>
+
+<div class="music-status" id="music-status" role="status" aria-live="polite"></div>
+
+<script>
+    // ================= 配置区域 =================
+
+    // 【配置1】朋友的名字
+    const friendName = "裴阿鸠";
+
+    // 【配置2】出生日期和时间
+    // 强烈建议写明时区，避免不同设备上出现时间偏差。
+    // 中国大陆时间请使用 +08:00。
+    const birthDate = "2007-07-16T00:00:00+08:00";
+
+    // 【配置3】背景图及权重
+    const bgImages = [
+        { url: '/images/private_pic/2026-07-16-peijiu-19hbd_1.jpg', weight: 1 },
+        { url: '/images/private_pic/2026-07-16-peijiu-19hbd_2.jpg', weight: 1 },
+        { url: '/images/private_pic/2026-07-16-peijiu-19hbd_3.jpg', weight: 1 },
+        { url: '/images/private_pic/2026-07-16-peijiu-19hbd_4.jpg', weight: 1 },
+        { url: '/images/private_pic/2026-07-16-peijiu-19hbd_5.jpg', weight: 1 },
+        { url: '/images/private_pic/2026-07-16-peijiu-19hbd_6.jpg', weight: 1 },
+        { url: '/images/private_pic/2026-07-16-peijiu-19hbd_7.jpg', weight: 1 },
+        { url: '/images/private_pic/2026-07-16-peijiu-19hbd_8.jpg', weight: 1 }
+    ];
+
+    // 【配置4】写给朋友的话
+    const diaryContent = `
+        <span class="diary-date">写给 ${friendName}</span>
+        亲爱的裴鸠，19岁生日快乐呀，恭喜又长大了一岁！在做这个页面的时候，我回顾了我们的聊天记录——我们从小红书相识，在微信上熟悉，在美团上关心，这都是我在苦苦寻找代肝的时候从来没有奢望过的缘分！又看了一遍我们的聊天记录，宝宝你是一个特别善良又可爱还很温柔的小女孩呀~你总是能在我低落的时候鼓励我，在我开心的时候陪我一起笑，在我很难过的时候给我点惊喜小蛋糕陪我度过难关。<br><br>
+　　     又长大了一岁，宝宝你一定要去看更高处更广阔的世界呀！当然，你也别太苛责自己了，我知道宝宝你对自己要求很高，但是很多时候你已经在能力范围内做得足够好了，剩下的都是其他人或者外部条件的问题！比起你去拼了命争取实现一个目标，我更希望宝宝你能每天开开心心的，能从每天的小事情里面发现人生值得的地方。不知道宝宝喜欢哪一首歌，我就挑了最近抖音上面很火的《纵此生》，就像开头唱的：“纵此生也不过百岁，何必沾染愁滋味”。也许宝宝你的心里也有很大很大的梦想，人生还有很长，所有的愿望都能够一步步实现的，而我对你的愿望只要你平平安安健健康康开开心心就好啦！<br><br>
+　　     还有啦，宝宝你总是夸我，我会很不好意思的啦。我和你都是凡胎肉体，也都有七情六欲，其他的标签都是空虚的。宝宝千万不要有学历崇拜呀，尤其是对男的。你也是很勇敢的小女孩呀，你读的可是我这辈子都没有勇气尝试的一个专业呢！而且，你可以自己出去兼职自己挣钱，能够鉴别兼职信息的真假，我觉得宝宝你真的特别特别勇敢呀，而且宝宝你甚至没到20岁呢，真的已经特别特别厉害了！我一直到现在基本上都还在窝窝囊囊地花爸妈的米，好想变得超级有钱然后给宝宝家里全部塞满礼物！反耳呢，我也只是一个普通的小女孩啦，考上什么学校早就已经是过去式了，它也只能代表一个名字而已，和个人能力几乎完全无关呀。不过啦，我觉得相比于这些，真正重要的是我和你一起绽放的现在和未来，好想有一天能够有机会和你见面！<br><br>
+　　     宝宝谢谢你将近一年来给我的陪伴，我真的特别特别感动，也觉得特别幸运能够拥有这样一段珍贵的缘分。最后，再一次祝你19岁生日快乐啦，要记住我永远爱你！
+        
+    `;
+
+    // 【配置5】随机温馨提示语
+    const warmTips = [
+        "宝宝你是世界上最美丽的天使 ❤️",
+        "特别特别可爱的小女孩呀 ✨",
+        "人生不过三万天，裴鸠宝宝要去好好体验与热爱 🫂",
+        "我爱你，昨天也是，今天也是，明天也是 🕒",
+        "愿岁岁常欢愉，年年皆胜意 💖",
+        "宝宝一直要做闪闪发光的人 🌟"
+    ];
+
+    // 【配置6】音乐设置
+    const musicConfig = {
+        volume: 0.5,
+        autoplay: false
+    };
+
+    // ================= 逻辑代码 =================
+
+    // 设置页面标题中的名字
+    document.getElementById("main-title-text").innerText =
+        `${friendName} 来到这个世界已经`;
+
+    // 1. 加权随机背景图
+    function setRandomBg() {
+        const validImages = bgImages.filter(
+            img => img.url && Number(img.weight) > 0
+        );
+
+        if (validImages.length === 0) {
+            console.warn("没有可用的背景图，请检查 bgImages 配置。");
+            return;
+        }
+
+        const totalWeight = validImages.reduce(
+            (sum, img) => sum + Number(img.weight),
+            0
+        );
+
+        let randomNum = Math.random() * totalWeight;
+        let selectedImgUrl = validImages[validImages.length - 1].url;
+
+        for (const img of validImages) {
+            randomNum -= Number(img.weight);
+            if (randomNum <= 0) {
+                selectedImgUrl = img.url;
+                break;
+            }
+        }
+
+        document.getElementById(
+            "bg-layer-bottom"
+        ).style.backgroundImage = `url('${selectedImgUrl}')`;
+
+        document.getElementById(
+            "bg-layer-top"
+        ).style.backgroundImage = `url('${selectedImgUrl}')`;
+    }
+
+    setRandomBg();
+
+    // 2. 正计时逻辑：完整年份 + 距离上一次生日经过的天数
+    function createBirthdayAnniversary(birth, targetYear) {
+        const anniversary = new Date(birth.getTime());
+        anniversary.setFullYear(targetYear);
+
+        // 处理 2 月 29 日出生者在非闰年的生日显示
+        if (
+            birth.getMonth() === 1 &&
+            birth.getDate() === 29 &&
+            anniversary.getMonth() !== 1
+        ) {
+            anniversary.setMonth(1, 28);
+        }
+
+        return anniversary;
+    }
+
+    function setTimerPlaceholder(value) {
+        document.getElementById("years").innerText = value;
+        document.getElementById("days").innerText = value;
+        document.getElementById("hours").innerText = value;
+        document.getElementById("minutes").innerText = value;
+        document.getElementById("seconds").innerText = value;
+    }
+
+    function updateTimer() {
+        const birth = new Date(birthDate);
+        const now = new Date();
+
+        // 出生日期格式无效
+        if (Number.isNaN(birth.getTime())) {
+            document.getElementById("main-title-text").innerText =
+                "出生日期格式有误";
+            setTimerPlaceholder("--");
+            return;
+        }
+
+        // 出生时间误填成未来时间
+        if (now.getTime() < birth.getTime()) {
+            document.getElementById("main-title-text").innerText =
+                "还没有来到这个世界呢～";
+
+            document.getElementById("years").innerText = "0";
+            document.getElementById("days").innerText = "0";
+            document.getElementById("hours").innerText = "00";
+            document.getElementById("minutes").innerText = "00";
+            document.getElementById("seconds").innerText = "00";
+            return;
+        }
+
+        let years = now.getFullYear() - birth.getFullYear();
+        let lastBirthday = createBirthdayAnniversary(
+            birth,
+            birth.getFullYear() + years
+        );
+
+        // 今年生日还未到，完整年份减一
+        if (now.getTime() < lastBirthday.getTime()) {
+            years -= 1;
+            lastBirthday = createBirthdayAnniversary(
+                birth,
+                birth.getFullYear() + years
+            );
+        }
+
+        // 计算距离上一次生日已经过去多久
+        const diff = now.getTime() - lastBirthday.getTime();
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+            (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor(
+            (diff % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        const seconds = Math.floor(
+            (diff % (1000 * 60)) / 1000
+        );
+
+        document.getElementById("years").innerText =
+            years.toLocaleString("zh-CN");
+        document.getElementById("days").innerText =
+            days.toLocaleString("zh-CN");
+        document.getElementById("hours").innerText =
+            hours.toString().padStart(2, "0");
+        document.getElementById("minutes").innerText =
+            minutes.toString().padStart(2, "0");
+        document.getElementById("seconds").innerText =
+            seconds.toString().padStart(2, "0");
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    // 3. 打字机效果
+    let charIndex = 0;
+    const typedTextContainer = document.getElementById("typed-text");
+    const diaryContainer = document.querySelector(".diary-container");
+
+    function typeWriter() {
+        if (charIndex < diaryContent.length) {
+            if (diaryContent[charIndex] === "<") {
+                const tagEnd = diaryContent.indexOf(">", charIndex);
+
+                if (tagEnd !== -1) {
+                    typedTextContainer.innerHTML +=
+                        diaryContent.substring(charIndex, tagEnd + 1);
+                    charIndex = tagEnd + 1;
+                } else {
+                    typedTextContainer.innerHTML += diaryContent[charIndex];
+                    charIndex++;
+                }
+            } else {
+                typedTextContainer.innerHTML += diaryContent[charIndex];
+                charIndex++;
+            }
+
+            diaryContainer.scrollTop = diaryContainer.scrollHeight;
+            const randomSpeed = Math.random() * 50 + 30;
+            setTimeout(typeWriter, randomSpeed);
+        } else {
+            document.querySelector(".cursor").style.display = "none";
+        }
+    }
+
+    setTimeout(typeWriter, 1000);
+
+    // 4. 飘落爱心
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("falling-heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 15 + 10 + "px";
+
+        const duration = Math.random() * 3 + 4;
+        heart.style.animationDuration = duration + "s";
+
+        document.getElementById("hearts-container").appendChild(heart);
+        setTimeout(() => heart.remove(), duration * 1000);
+    }
+
+    setInterval(createHeart, 800);
+
+    // 5. 音乐播放控制
+    const audio = document.getElementById("background-music");
+    const musicBtn = document.getElementById("music-btn");
+    const musicIcon = document.getElementById("music-icon");
+    const musicStatus = document.getElementById("music-status");
+
+    let musicStatusTimer = null;
+    audio.volume = musicConfig.volume;
+
+    function showMusicStatus(message, isError = false, duration = 4500) {
+        clearTimeout(musicStatusTimer);
+
+        musicStatus.innerText = message;
+        musicStatus.classList.toggle("error", isError);
+        musicStatus.classList.add("show");
+
+        musicStatusTimer = setTimeout(() => {
+            musicStatus.classList.remove("show");
+        }, duration);
+    }
+
+    function getMediaErrorText() {
+        if (!audio.error) {
+            return "浏览器没有返回具体错误";
+        }
+
+        const errorMessages = {
+            1: "播放被浏览器中止",
+            2: "网络加载失败",
+            3: "音频解码失败",
+            4: "文件格式或路径不受支持"
+        };
+
+        return errorMessages[audio.error.code] || "未知音频错误";
+    }
+
+    function updateMusicIcon() {
+        if (audio.paused) {
+            musicIcon.classList.remove("pause");
+            musicIcon.classList.add("play");
+            musicBtn.setAttribute("aria-label", "播放音乐");
+        } else {
+            musicIcon.classList.remove("play");
+            musicIcon.classList.add("pause");
+            musicBtn.setAttribute("aria-label", "暂停音乐");
+        }
+    }
+
+    async function playMusic() {
+        try {
+            // 如果之前加载失败，重新加载一次再播放
+            if (audio.error) {
+                audio.load();
+            }
+
+            const playResult = audio.play();
+
+            if (playResult !== undefined) {
+                await playResult;
+            }
+
+            updateMusicIcon();
+            showMusicStatus("音乐已开始播放 ♫");
+            return true;
+        } catch (error) {
+            updateMusicIcon();
+
+            const currentPath =
+                audio.currentSrc ||
+                audio.getAttribute("src") ||
+                "未读取到音乐路径";
+
+            const detail = getMediaErrorText();
+
+            showMusicStatus(
+                `音乐播放失败：${detail}。请确认文件已经部署，并可直接访问：${currentPath}`,
+                true,
+                8000
+            );
+
+            console.error("音乐播放失败：", error, {
+                currentPath,
+                mediaError: audio.error
+            });
+
+            return false;
+        }
+    }
+
+    async function toggleMusic() {
+        if (audio.paused) {
+            await playMusic();
+        } else {
+            audio.pause();
+            updateMusicIcon();
+            showMusicStatus("音乐已暂停");
+        }
+    }
+
+    musicBtn.addEventListener("click", toggleMusic);
+
+    // 支持键盘操作
+    musicBtn.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleMusic();
+        }
+    });
+
+    audio.addEventListener("play", updateMusicIcon);
+    audio.addEventListener("pause", updateMusicIcon);
+    audio.addEventListener("ended", updateMusicIcon);
+
+    // 即使音频在点击前就加载失败，也显示可见提示
+    audio.addEventListener("error", () => {
+        const currentPath =
+            audio.currentSrc ||
+            audio.getAttribute("src") ||
+            "未读取到音乐路径";
+
+        showMusicStatus(
+            `音乐加载失败：${getMediaErrorText()}。当前路径：${currentPath}`,
+            true,
+            8000
+        );
+
+        console.error("音频加载错误：", audio.error);
+    });
+
+    // 浏览器通常会限制自动播放
+    if (musicConfig.autoplay) {
+        playMusic();
+    }
+
+    // 6. 随机温馨提示语
+    function showRandomTip() {
+        const tipElement = document.getElementById("warm-tip");
+        const randomIndex = Math.floor(Math.random() * warmTips.length);
+        tipElement.innerText = warmTips[randomIndex];
+        setTimeout(showRandomTip, 30000);
+    }
+
+    setTimeout(showRandomTip, 1500);
+
+    // 7. 点击爱心：生成爱心，并在音乐未播放时尝试播放
+    const interactiveHeart = document.getElementById("interactive-heart");
+
+    interactiveHeart.addEventListener("click", async () => {
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createHeart, i * 100);
+        }
+
+        interactiveHeart.style.color = "#ff6b6b";
+
+        setTimeout(() => {
+            interactiveHeart.style.color = "#ffb7b2";
+        }, 500);
+
+        // 之前的代码没有播放音乐；现在首次点击爱心也会触发播放
+        if (audio.paused) {
+            await playMusic();
+        }
+    });
+
+    updateMusicIcon();
+</script>
+
+
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/think_pic/2025-06-27.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">言如泉</div><div class="author-info-description">什么都写点，各位见笑了。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/YAN-CodeSpring"><i class="fab fa-github"></i><span>在GitHub上关注我！</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/YAN-CodeSpring" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:yan.codespring@gmail.com" target="_blank" title="Email"><i class="far fa-envelope" style="color: #24292e;"></i></a><a class="social-icon" href="https://space.bilibili.com/1324439158?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.zhihu.com/people/10-44-3-50-19" target="_blank" title="知乎"><i class="fab fa-zhihu" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E8%AF%BB%E7%82%B9%E4%B9%A6-2025-09-09-wakeup.html" title="《认知觉醒》读书睡前小记"><img src="/images/cover/cover_1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《认知觉醒》读书睡前小记"/></a><div class="content"><a class="title" href="/%E8%AF%BB%E7%82%B9%E4%B9%A6-2025-09-09-wakeup.html" title="《认知觉醒》读书睡前小记">《认知觉醒》读书睡前小记</a><time datetime="2025-09-09T06:33:31.000Z" title="发表于 2025-09-09 14:33:31">2025-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-09-09-forgive.html" title="论原谅"><img src="/images/cover/cover_8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论原谅"/></a><div class="content"><a class="title" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5-2025-09-09-forgive.html" title="论原谅">论原谅</a><time datetime="2025-09-09T05:37:23.000Z" title="发表于 2025-09-09 13:37:23">2025-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-linux-wsl.html" title="比双系统方便的Linux——wsl！"><img src="/images/cover/cover_7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="比双系统方便的Linux——wsl！"/></a><div class="content"><a class="title" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-linux-wsl.html" title="比双系统方便的Linux——wsl！">比双系统方便的Linux——wsl！</a><time datetime="2025-08-27T12:24:52.000Z" title="发表于 2025-08-27 20:24:52">2025-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-learnsource.html" title="学习资料网站（欢迎收藏）"><img src="/images/cover/cover_8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="学习资料网站（欢迎收藏）"/></a><div class="content"><a class="title" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-learnsource.html" title="学习资料网站（欢迎收藏）">学习资料网站（欢迎收藏）</a><time datetime="2025-08-27T12:20:14.000Z" title="发表于 2025-08-27 20:20:14">2025-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-knn.html" title="KNN手写数字识别"><img src="/images/cover/cover_4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="KNN手写数字识别"/></a><div class="content"><a class="title" href="/%E5%AD%A6%E7%82%B9%E4%B9%A0-2025-08-27-knn.html" title="KNN手写数字识别">KNN手写数字识别</a><time datetime="2025-08-27T12:17:33.000Z" title="发表于 2025-08-27 20:17:33">2025-08-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Learn/"><span class="card-category-list-name">Learn</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Read/"><span class="card-category-list-name">Read</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Think/"><span class="card-category-list-name">Think</span><span class="card-category-list-count">3</span></a></li>
+          </ul></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              九月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">6</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">13</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2025-06-27T15:46:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">22.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-07-16T15:46:36.423Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: Grey;"><div id="footer-wrap"><div class="copyright">&copy;2025 - 2026 By 言如泉</div><div class="footer_custom_text">Welcome To Contact Me.</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
